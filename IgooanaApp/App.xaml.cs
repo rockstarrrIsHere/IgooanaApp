@@ -6,7 +6,6 @@ using System.Windows.Markup;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using IgooanaApp.Resources;
 
 namespace IgooanaApp {
   public partial class App : Application {
@@ -174,7 +173,7 @@ namespace IgooanaApp {
         //
         // If a compiler error is hit then ResourceLanguage is missing from
         // the resource file.
-        RootFrame.Language = XmlLanguage.GetLanguage(AppResources.ResourceLanguage);
+        //RootFrame.Language = XmlLanguage.GetLanguage(AppResources.ResourceLanguage);
 
         // Set the FlowDirection of all elements under the root frame based
         // on the ResourceFlowDirection resource string for each
@@ -182,8 +181,8 @@ namespace IgooanaApp {
         //
         // If a compiler error is hit then ResourceFlowDirection is missing from
         // the resource file.
-        FlowDirection flow = (FlowDirection)Enum.Parse(typeof(FlowDirection), AppResources.ResourceFlowDirection);
-        RootFrame.FlowDirection = flow;
+        //FlowDirection flow = (FlowDirection)Enum.Parse(typeof(FlowDirection), AppResources.ResourceFlowDirection);
+        //RootFrame.FlowDirection = flow;
       }
       catch {
         // If an exception is caught here it is most likely due to either

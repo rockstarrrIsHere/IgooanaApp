@@ -7,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using IgooanaApp.Resources;
 
 namespace IgooanaApp {
   public partial class MainPage : PhoneApplicationPage {
