@@ -2,6 +2,7 @@
 using System.Windows;
 using Igooana;
 using IgooanaApp.Resources;
+using System;
 
 namespace IgooanaApp {
   public partial class Auth : PhoneApplicationPage {
@@ -16,7 +17,7 @@ namespace IgooanaApp {
 
     private async void OnNavigating(object sender, NavigatingEventArgs e) {
       if (await api.Authenticate(e.Uri)) {
-        MessageBox.Show("You've authenticated with Google");
+        NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
       }
     }
   }
