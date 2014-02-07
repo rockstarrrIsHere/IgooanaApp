@@ -2,5 +2,3 @@ bin
 obj
 *.suo
 packages
-Env.Designer.cs
-Env.resx
