@@ -99,6 +99,7 @@
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layout.cs" />
     <Compile Include="Profiles.xaml.cs">
       <DependentUpon>Profiles.xaml</DependentUpon>
     </Compile>
@@ -126,6 +127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Resource Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
