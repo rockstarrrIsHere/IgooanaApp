@@ -11,13 +11,16 @@
     
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-      <ListBox  Grid.Row="1" x:Name="AcquisitionList">
+    <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" Visibility="Visible"/>
+    <ListBox  Grid.Row="1" x:Name="AcquisitionList" Visibility="Collapsed">
         <ListBox.ItemTemplate>
           <DataTemplate>
-            <TextBlock Text="{Binding Source}"/>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Source }" Margin="5" />
+            <TextBlock Text="{Binding Visits}" Margin="5"/>
+          </StackPanel>
           </DataTemplate>
         </ListBox.ItemTemplate>
       </ListBox>
