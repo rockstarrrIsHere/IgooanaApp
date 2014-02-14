@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:charts="clr-namespace:IgooanaApp.Charts"
     >
-  <!--<Style TargetType="amq:PieChart">
+  <Style TargetType="charts:PieChart">
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate TargetType="amq:PieChart">
+        <ControlTemplate TargetType="charts:PieChart">
           <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -21,13 +21,13 @@
                 <Canvas x:Name="PART_SliceCanvas" />
               </Border>
 
-              <amq:Legend x:Name="PART_Legend" HorizontalAlignment="Right" VerticalAlignment="Top"
+              <charts:Legend x:Name="PART_Legend" HorizontalAlignment="Right" VerticalAlignment="Top"
                                         Margin="10,0,0,0" 
                                         Visibility="{TemplateBinding LegendVisibility}"
                                         />
 
               <Canvas>
-                <amq:Balloon x:Name="PART_Balloon" 
+                <charts:Balloon x:Name="PART_Balloon" 
                                              BorderBrush="{TemplateBinding Foreground}" 
                                              BorderThickness="2"
                                              Visibility="Collapsed"
@@ -39,5 +39,5 @@
         </ControlTemplate>
       </Setter.Value>
     </Setter>
-  </Style>-->
+  </Style>
 </ResourceDictionary>

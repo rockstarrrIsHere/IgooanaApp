@@ -96,7 +96,14 @@
     <Compile Include="Auth.xaml.cs">
       <DependentUpon>Auth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Charts\Balloon.cs" />
+    <Compile Include="Charts\BindingEvaluator.cs" />
+    <Compile Include="Charts\ILegendItem.cs" />
+    <Compile Include="Charts\Legend.cs" />
+    <Compile Include="Charts\LegendItem.cs" />
     <Compile Include="Charts\PieChart.cs" />
+    <Compile Include="Charts\Slice.cs" />
+    <Compile Include="Charts\TreeHelper.cs" />
     <Compile Include="Controls\DashboardAcquisition.xaml.cs">
       <DependentUpon>DashboardAcquisition.xaml</DependentUpon>
     </Compile>
@@ -136,7 +143,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Balloon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Layout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Legend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
