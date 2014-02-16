@@ -9,6 +9,7 @@ namespace IgooanaApp.Charts {
   /// Facilitates rendering of pie chart slices.
   /// </summary>
   public class Slice : Control, ILegendItem {
+    private Path slicePath;
     /// <summary>
     /// Instantiates Slice.
     /// </summary>
@@ -50,13 +51,12 @@ namespace IgooanaApp.Charts {
       set { SetValue(BrushProperty, value); }
     }
 
-    private Path _sliceVisual;
 
     /// <summary>
     /// Applies control template.
     /// </summary>
     public override void OnApplyTemplate() {
-      _sliceVisual = (Path)TreeHelper.TemplateFindName("PART_SliceVisual", this);
+      slicePath = (Path)TreeHelper.TemplateFindName("PART_SliceVisual", this);
 
       RenderSlice();
     }
@@ -77,8 +77,8 @@ namespace IgooanaApp.Charts {
     }
 
     private void RenderSlice() {
-      if (_sliceVisual != null) {
-        _sliceVisual.Fill = Brush;
+      if (slicePath != null) {
+        slicePath.Fill = Brush;
         if (percentage < 1) {
           RenderRegularSlice();
         }
@@ -95,14 +95,14 @@ namespace IgooanaApp.Charts {
         RadiusX = radius,
         RadiusY = radius
       };
-      _sliceVisual.Data = ellipse;
+      slicePath.Data = ellipse;
     }
 
     private void RenderRegularSlice() {
       PathGeometry geometry = new PathGeometry();
       PathFigure figure = new PathFigure();
       geometry.Figures.Add(figure);
-      _sliceVisual.Data = geometry;
+      slicePath.Data = geometry;
 
       double endAngleRad = percentage * 360 * Math.PI / 180;
       Point endPoint = new Point(radius * Math.Cos(endAngleRad), radius * Math.Sin(endAngleRad));
@@ -116,11 +116,5 @@ namespace IgooanaApp.Charts {
       });
       figure.Segments.Add(new LineSegment() { Point = new Point(0, 0) });
     }
-
-    /// <summary>
-    /// Gets or sets tool tip (Balloon) text.
-    /// </summary>
-    public string ToolTipText { get; set; }
-
   }
 }

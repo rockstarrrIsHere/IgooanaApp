@@ -14,12 +14,15 @@ namespace IgooanaApp.Charts {
   /// <summary>
   /// Displays pie charts.
   /// </summary>
+  [TemplatePart(Name = "PART_CanvasBorder", Type = typeof(Border))]
+  [TemplatePart(Name = "PART_Canvas", Type = typeof(Canvas))]
   public class PieChart : Control {
+    private ObservableCollection<Slice> slices = new ObservableCollection<Slice>();
     private Balloon balloon;
     private Legend legend;
     private List<Brush> brushes = new List<Brush>();
-    private Canvas sliceCanvas;
-    private Border sliceCanvasDecorator;
+    private Canvas canvas;
+    private Border canvasBorder;
     private List<string> titles = new List<string>();
     private List<double> values = new List<double>();
     private double total;
@@ -32,10 +35,6 @@ namespace IgooanaApp.Charts {
       this.slices.CollectionChanged += new NotifyCollectionChangedEventHandler(OnSlicesCollectionChanged);
       Padding = new Thickness(10);
     }
-
-
-
-    //// LEGEND
 
 
     /// <summary>
@@ -77,8 +76,8 @@ namespace IgooanaApp.Charts {
 
     private static void OnDataSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) {
       PieChart chart = d as PieChart;
-      DetachOldDataSourceCollectionChangedListener(chart, e.OldValue);
-      AttachDataSourceCollectionChangedListener(chart, e.NewValue);
+      //DetachOldDataSourceCollectionChangedListener(chart, e.OldValue);
+      //AttachDataSourceCollectionChangedListener(chart, e.NewValue);
       chart.ProcessData();
     }
 
@@ -151,7 +150,6 @@ namespace IgooanaApp.Charts {
         values.Clear();
         total = 0;
       }
-      //InvalidateArrange();
       RenderSlices();
     }
 
@@ -199,11 +197,6 @@ namespace IgooanaApp.Charts {
         // angle
         ((RotateTransform)slices[i].RenderTransform).Angle = (total != 0 ? runningTotal / total * 360 : 360.0 / slices.Count * i);
         runningTotal += values[i];
-
-        // tooltip
-        string tooltipContent = slices[i].Title + " : " + values[i].ToString() + " (" + (total != 0 ? values[i] / total : 1.0 / slices.Count).ToString("0.#%") + ")";
-        //ToolTipService.SetToolTip(_slices[i], tooltipContent);
-        slices[i].ToolTipText = tooltipContent;
       }
       UpdateLegend();
     }
@@ -222,8 +215,8 @@ namespace IgooanaApp.Charts {
     }
 
     private void RemoveSliceFromCanvas(Slice slice) {
-      if (sliceCanvas != null && sliceCanvas.Children.Contains(slice)) {
-        sliceCanvas.Children.Remove(slice);
+      if (canvas != null && canvas.Children.Contains(slice)) {
+        canvas.Children.Remove(slice);
       }
     }
 
@@ -239,7 +232,7 @@ namespace IgooanaApp.Charts {
     }
 
     void OnSliceManipulationStarted(object sender, ManipulationStartedEventArgs e) {
-      GeneralTransform gt = (sender as Slice).TransformToVisual(sliceCanvasDecorator);
+      GeneralTransform gt = (sender as Slice).TransformToVisual(canvasBorder);
       DisplayBalloon(sender as Slice, gt.Transform(e.ManipulationOrigin));
       //e.Handled = true;
       isSliceEvent = true;
@@ -252,7 +245,7 @@ namespace IgooanaApp.Charts {
     protected override void OnManipulationStarted(ManipulationStartedEventArgs e) {
       if (!isSliceEvent) {
         HideBaloon();
-        SwitchLegend();
+        //SwitchLegend();
       }
       else {
         isSliceEvent = false;
@@ -275,8 +268,8 @@ namespace IgooanaApp.Charts {
     }
 
     private void AddSliceToCanvas(Slice slice) {
-      if (sliceCanvas != null && !sliceCanvas.Children.Contains(slice)) {
-        sliceCanvas.Children.Add(slice);
+      if (canvas != null && !canvas.Children.Contains(slice)) {
+        canvas.Children.Add(slice);
       }
     }
 
@@ -285,9 +278,9 @@ namespace IgooanaApp.Charts {
     /// Applies control template.
     /// </summary>
     public override void OnApplyTemplate() {
-      sliceCanvasDecorator = (Border)TreeHelper.TemplateFindName("PART_SliceCanvasDecorator", this);
-      sliceCanvasDecorator.SizeChanged += new SizeChangedEventHandler(OnGraphCanvasDecoratorSizeChanged);
-      sliceCanvas = (Canvas)TreeHelper.TemplateFindName("PART_SliceCanvas", this);
+      canvasBorder = (Border)TreeHelper.TemplateFindName("PART_CanvasBorder", this);
+      canvasBorder.SizeChanged += new SizeChangedEventHandler(OnGraphCanvasDecoratorSizeChanged);
+      canvas = (Canvas)TreeHelper.TemplateFindName("PART_SliceCanvas", this);
 
       balloon = (Balloon)TreeHelper.TemplateFindName("PART_Balloon", this);
 
@@ -301,8 +294,8 @@ namespace IgooanaApp.Charts {
     }
 
     void OnLegendManipulationStarted(object sender, ManipulationStartedEventArgs e) {
-      SwitchLegend();
-      e.Handled = true;
+      //SwitchLegend();
+      //e.Handled = true;
     }
 
     private void UpdateLegend() {
@@ -319,20 +312,19 @@ namespace IgooanaApp.Charts {
       RenderSlices();
     }
 
-    private ObservableCollection<Slice> slices = new ObservableCollection<Slice>();
 
     private void RenderSlices() {
-      if (values.Count != slices.Count)
+      if (values.Count != slices.Count) {
         ReallocateSlices();
-
+      }
       ArrangeSlices();
       HideBaloon();
     }
 
     private void ArrangeSlices() {
-      if (sliceCanvasDecorator != null) {
-        Point center = new Point(sliceCanvasDecorator.ActualWidth / 2, sliceCanvasDecorator.ActualHeight / 2);
-        double radius = Math.Min(sliceCanvasDecorator.ActualWidth, sliceCanvasDecorator.ActualHeight) / 2;
+      if (canvasBorder != null) {
+        Point center = new Point(canvasBorder.ActualWidth / 2, canvasBorder.ActualHeight / 2);
+        double radius = Math.Min(canvasBorder.ActualWidth, canvasBorder.ActualHeight) / 2;
         for (int i = 0; i < slices.Count; i++) {
           slices[i].SetDimensions(radius, (total != 0 ? values[i] / total : 1.0 / slices.Count));
           slices[i].SetValue(Canvas.LeftProperty, center.X);
@@ -372,14 +364,13 @@ namespace IgooanaApp.Charts {
     }
 
     private void DisplayBalloon(Slice slice, Point position) {
-      balloon.Text = slice.ToolTipText;
       balloon.Visibility = Visibility.Visible;
-      balloon.Measure(new Size(sliceCanvasDecorator.ActualWidth, sliceCanvasDecorator.ActualHeight));
+      balloon.Measure(new Size(canvasBorder.ActualWidth, canvasBorder.ActualHeight));
       double balloonLeft = position.X - balloon.DesiredSize.Width / 2;
       if (balloonLeft < 0) {
         balloonLeft = position.X;
       }
-      else if (balloonLeft + balloon.DesiredSize.Width > sliceCanvasDecorator.ActualWidth) {
+      else if (balloonLeft + balloon.DesiredSize.Width > canvasBorder.ActualWidth) {
         balloonLeft = position.X - balloon.DesiredSize.Width;
       }
       double balloonTop = position.Y - balloon.DesiredSize.Height - 5;

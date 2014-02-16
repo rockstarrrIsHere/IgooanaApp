@@ -1,4 +1,5 @@
 ﻿using Igooana;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -12,10 +13,10 @@ namespace IgooanaApp.Controls {
       Loaded += OnLoaded;
     }
 
-    //private void ToggleLoading() {
-    //  ProgressBar.Visibility = ToggleVisibility(ProgressBar.Visibility);
-    //  AcquisitionList.Visibility = ToggleVisibility(AcquisitionList.Visibility);
-    //}
+    private void ToggleLoading() {
+      ProgressBar.Visibility = ToggleVisibility(ProgressBar.Visibility);
+      AcquisitionChart.Visibility = ToggleVisibility(AcquisitionChart.Visibility);
+    }
 
     private Visibility ToggleVisibility(Visibility visibility) {
       if (visibility == System.Windows.Visibility.Collapsed) {
@@ -26,12 +27,16 @@ namespace IgooanaApp.Controls {
 
     async void OnLoaded(object sender, RoutedEventArgs e) {
       var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
-        .WithMetrics(Metric.Visits).WithDimensions(Dimension.TrafficSources.Source);
+        .WithMetrics(Metric.Session.Visits).WithDimensions(Dimension.TrafficSources.Source);
       var result = await Api.Current.Execute(query);
-      var data = new ObservableCollection<object>(result.Values.Select(x => new { Source = x.Source, Visits = x.Visits }));
-      AcquisitionChart.DataSource = new []{new {Source = "USA", Visits = 35}, new {Source = "Russia", Visits = 70}};
-
-      //ToggleLoading();
+      var sum = result.Values.Sum(x => x.Visits);
+      var data = result.Values
+        .Select(x=> new {Title = x.Source, Value = Convert.ToSingle(x.Visits), Percent = Convert.ToSingle(x.Visits)/sum})
+        .Select(x => new {Title = string.Format("{0} ({1:P})", x.Title, x.Percent), Value = x.Value, Percent = x.Percent})
+        .Where(x => x.Percent > .005)
+        .OrderByDescending(x => x.Percent);
+      AcquisitionChart.DataSource = data;
+      ToggleLoading();
     }
   }
 }

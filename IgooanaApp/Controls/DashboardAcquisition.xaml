@@ -10,7 +10,8 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
-  <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-    <charts:PieChart x:Name="AcquisitionChart" TitleMemberPath="Source" ValueMemberPath="Visits"/>
+  <Grid x:Name="LayoutRoot" Background="Gray">
+    <ProgressBar x:Name="ProgressBar" IsIndeterminate="True"/>
+    <charts:PieChart x:Name="AcquisitionChart" TitleMemberPath="Title" ValueMemberPath="Value" Visibility="Collapsed"/>
   </Grid>
 </UserControl>

@@ -13,27 +13,26 @@
                             Padding="{TemplateBinding Padding}"
                             >
             <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+              </Grid.RowDefinitions>
               <Grid.ColumnDefinitions>
                 <ColumnDefinition />
               </Grid.ColumnDefinitions>
 
-              <Border x:Name="PART_SliceCanvasDecorator" Background="Transparent">
-                <Canvas x:Name="PART_SliceCanvas" />
+              <Border x:Name="PART_CanvasBorder" Background="Transparent">
+                <Canvas x:Name="PART_SliceCanvas" MinHeight="400" />
               </Border>
-
-              <charts:Legend x:Name="PART_Legend" HorizontalAlignment="Right" VerticalAlignment="Top"
-                                        Margin="10,0,0,0" 
-                                        Visibility="{TemplateBinding LegendVisibility}"
-                                        />
-
               <Canvas>
                 <charts:Balloon x:Name="PART_Balloon" 
                                              BorderBrush="{TemplateBinding Foreground}" 
                                              BorderThickness="2"
-                                             Visibility="Collapsed"
-                                             />
+                                             Visibility="Collapsed"/>
               </Canvas>
+              
 
+              <charts:Legend Grid.Row="1" x:Name="PART_Legend" Margin="10,0,0,0" Visibility="{TemplateBinding LegendVisibility}"/>
             </Grid>
           </Border>
         </ControlTemplate>
