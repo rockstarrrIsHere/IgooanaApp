@@ -16,6 +16,7 @@ namespace IgooanaApp.Charts {
   /// </summary>
   [TemplatePart(Name = "PART_CanvasBorder", Type = typeof(Border))]
   [TemplatePart(Name = "PART_Canvas", Type = typeof(Canvas))]
+  [TemplatePart(Name = "PART_Legend", Type = typeof(Legend))]
   public class PieChart : Control {
     private ObservableCollection<Slice> slices = new ObservableCollection<Slice>();
     private Balloon balloon;
@@ -379,6 +380,7 @@ namespace IgooanaApp.Charts {
       }
       balloon.SetValue(Canvas.LeftProperty, balloonLeft);
       balloon.SetValue(Canvas.TopProperty, balloonTop);
+      balloon.Text = slice.Title;
     }
 
     private void HideBaloon() {

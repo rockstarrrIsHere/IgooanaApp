@@ -10,6 +10,8 @@ namespace IgooanaApp.Charts {
   /// </summary>
   public class Slice : Control, ILegendItem {
     private Path slicePath;
+    private double radius = 0;
+    private double percentage = 0;
     /// <summary>
     /// Instantiates Slice.
     /// </summary>
@@ -61,8 +63,6 @@ namespace IgooanaApp.Charts {
       RenderSlice();
     }
 
-    private double radius = 0;
-    private double percentage = 0;
 
     /// <summary>
     /// Sets slice dimensions and renders it.

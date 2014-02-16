@@ -32,7 +32,8 @@
               </Canvas>
               
 
-              <charts:Legend Grid.Row="1" x:Name="PART_Legend" Margin="10,0,0,0" Visibility="{TemplateBinding LegendVisibility}"/>
+              <charts:Legend Grid.Row="1" x:Name="PART_Legend" Margin="10,0,0,0" Visibility="{TemplateBinding LegendVisibility}"
+                             />
             </Grid>
           </Border>
         </ControlTemplate>
