@@ -15,9 +15,7 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
   <local:Layout>
-    <StackPanel>
-      <localControls:DashboardAcquisition/>
-    </StackPanel>
+    <localControls:DashboardAcquisition/>
   </local:Layout>
 
 

@@ -1,4 +1,5 @@
 ﻿using Igooana;
+using IgooanaApp.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -29,13 +30,7 @@ namespace IgooanaApp.Controls {
       var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
         .WithMetrics(Metric.Session.Visits).WithDimensions(Dimension.TrafficSources.Source);
       var result = await Api.Current.Execute(query);
-      var sum = result.Values.Sum(x => x.Visits);
-      var data = result.Values
-        .Select(x=> new {Title = x.Source, Value = Convert.ToSingle(x.Visits), Percent = Convert.ToSingle(x.Visits)/sum})
-        .Select(x => new {Title = string.Format("{0} ({1:P})", x.Title, x.Percent), Value = x.Value, Percent = x.Percent})
-        .Where(x => x.Percent > .005)
-        .OrderByDescending(x => x.Percent);
-      AcquisitionChart.DataSource = data;
+      AcquisitionChart.DataSource = new DashboardAcquisitionViewModel(result.Values);
       ToggleLoading();
     }
   }
