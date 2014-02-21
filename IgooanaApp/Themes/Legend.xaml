@@ -19,7 +19,7 @@
         <DataTemplate>
           <StackPanel Orientation="Horizontal">
             <Rectangle Fill="{Binding Brush}" Height="10" Width="10" Margin="5" />
-            <TextBlock Text="{Binding Title}" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding Title}" VerticalAlignment="Center" Foreground="Gray" />
           </StackPanel>
         </DataTemplate>
       </Setter.Value>

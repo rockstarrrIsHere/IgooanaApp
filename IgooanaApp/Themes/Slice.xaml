@@ -7,7 +7,7 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="charts:Slice">
-          <Path x:Name="PART_SliceVisual">
+          <Path x:Name="PART_SliceVisual" Stroke="White" StrokeThickness="2">
           </Path>
         </ControlTemplate>
       </Setter.Value>

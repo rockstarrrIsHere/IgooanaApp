@@ -31,6 +31,7 @@ namespace IgooanaApp.Controls {
         .WithMetrics(Metric.Session.Visits).WithDimensions(Dimension.TrafficSources.Source);
       var result = await Api.Current.Execute(query);
       AcquisitionChart.DataSource = new DashboardAcquisitionViewModel(result.Values);
+      AcquisitionChart.DataContext = AcquisitionChart.DataSource;
       ToggleLoading();
     }
   }

@@ -55,9 +55,37 @@ namespace IgooanaApp.Charts {
       get { return (Visibility)GetValue(LegendVisibilityProperty); }
       set { SetValue(LegendVisibilityProperty, value); }
     }
+    
 
+    /// <summary>
+    /// Identifies <see cref="Text"/> dependency property.
+    /// </summary>
+    public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+      "Text", typeof(string), typeof(PieChart), new PropertyMetadata(null));
 
+    /// <summary>
+    /// Gets or sets the value inside a doughnut.
+    /// This is a dependency property.
+    /// </summary>
+    public string Text {
+      get { return (string)GetValue(TextProperty); }
+      set { SetValue(TextProperty, value); }
+    }
 
+    /// <summary>
+    /// Identifies <see cref="Description"/> dependency property.
+    /// </summary>
+    public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register(
+      "Description", typeof(string), typeof(PieChart), new PropertyMetadata(null));
+
+    /// <summary>
+    /// Gets or sets the description inside a doughnut.
+    /// This is a dependency property.
+    /// </summary>
+    public string Description {
+      get { return (string)GetValue(DescriptionProperty); }
+      set { SetValue(DescriptionProperty, value); }
+    }
 
     /// <summary>
     /// Identifies <see cref="DataSource"/> dependency property.
@@ -246,7 +274,6 @@ namespace IgooanaApp.Charts {
     protected override void OnManipulationStarted(ManipulationStartedEventArgs e) {
       if (!isSliceEvent) {
         HideBaloon();
-        //SwitchLegend();
       }
       else {
         isSliceEvent = false;
@@ -282,21 +309,10 @@ namespace IgooanaApp.Charts {
       canvasBorder = (Border)TreeHelper.TemplateFindName("PART_CanvasBorder", this);
       canvasBorder.SizeChanged += new SizeChangedEventHandler(OnGraphCanvasDecoratorSizeChanged);
       canvas = (Canvas)TreeHelper.TemplateFindName("PART_SliceCanvas", this);
-
       balloon = (Balloon)TreeHelper.TemplateFindName("PART_Balloon", this);
-
       AddSlicesToCanvas();
-
       legend = (Legend)TreeHelper.TemplateFindName("PART_Legend", this);
-
-      legend.ManipulationStarted += new EventHandler<ManipulationStartedEventArgs>(OnLegendManipulationStarted);
-
       UpdateLegend();
-    }
-
-    void OnLegendManipulationStarted(object sender, ManipulationStartedEventArgs e) {
-      //SwitchLegend();
-      //e.Handled = true;
     }
 
     private void UpdateLegend() {

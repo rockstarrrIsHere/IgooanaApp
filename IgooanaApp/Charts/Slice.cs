@@ -103,18 +103,27 @@ namespace IgooanaApp.Charts {
       PathFigure figure = new PathFigure();
       geometry.Figures.Add(figure);
       slicePath.Data = geometry;
+      var offset = radius - radius * 0.3;
 
       double endAngleRad = percentage * 360 * Math.PI / 180;
-      Point endPoint = new Point(radius * Math.Cos(endAngleRad), radius * Math.Sin(endAngleRad));
+      Point outerArcEndPoint = new Point(radius * Math.Cos(endAngleRad), radius * Math.Sin(endAngleRad));
+      Point innerArcStartPoint = new Point(offset * Math.Cos(endAngleRad), offset * Math.Sin(endAngleRad));
 
-      figure.Segments.Add(new LineSegment() { Point = new Point(radius, 0) });
-      figure.Segments.Add(new ArcSegment() {
+      figure.StartPoint = new Point(offset, 0);
+      figure.Segments.Add(new LineSegment { Point = new Point(radius, 0) });
+      figure.Segments.Add(new ArcSegment {
         Size = new Size(radius, radius),
-        Point = endPoint,
+        Point = outerArcEndPoint,
         SweepDirection = SweepDirection.Clockwise,
         IsLargeArc = percentage > 0.5
       });
-      figure.Segments.Add(new LineSegment() { Point = new Point(0, 0) });
+      figure.Segments.Add(new LineSegment() { Point = innerArcStartPoint });
+      figure.Segments.Add(new ArcSegment {
+        Size = new Size(offset, offset),
+        Point = new Point(offset, 0),
+        SweepDirection = SweepDirection.Counterclockwise,
+        IsLargeArc = percentage > 0.5
+      });
     }
   }
 }

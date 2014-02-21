@@ -22,7 +22,7 @@
               </Grid.ColumnDefinitions>
 
               <Border x:Name="PART_CanvasBorder" Background="Transparent">
-                <Canvas x:Name="PART_SliceCanvas" MinHeight="400" />
+                <Canvas x:Name="PART_SliceCanvas"/>
               </Border>
               <Canvas>
                 <charts:Balloon x:Name="PART_Balloon" 
@@ -30,10 +30,11 @@
                                              BorderThickness="2"
                                              Visibility="Collapsed"/>
               </Canvas>
-              
-
-              <charts:Legend Grid.Row="1" x:Name="PART_Legend" Margin="10,0,0,0" Visibility="{TemplateBinding LegendVisibility}"
-                             />
+              <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="{TemplateBinding Text}" FontSize="72" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
+                <TextBlock Text="{TemplateBinding Description}" FontSize="36" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
+              </StackPanel>
+              <charts:Legend Grid.Row="1" x:Name="PART_Legend" Margin="10,0,0,0" Visibility="{TemplateBinding LegendVisibility}"/>
             </Grid>
           </Border>
         </ControlTemplate>

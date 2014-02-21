@@ -10,8 +10,13 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
-  <Grid x:Name="LayoutRoot" Background="Gray">
-    <ProgressBar x:Name="ProgressBar" IsIndeterminate="True"/>
-    <charts:PieChart x:Name="AcquisitionChart" TitleMemberPath="Title" ValueMemberPath="Value" Visibility="Collapsed"/>
+  <Grid x:Name="LayoutRoot" Background="#eeeeee">
+    <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" />
+    <charts:PieChart x:Name="AcquisitionChart" 
+                     Visibility="Collapsed"
+                     ValueMemberPath="Value"
+                     TitleMemberPath="Title"
+                     Text="{Binding CenterText}"
+                     Description="{Binding CenterTextDescription}"/>
   </Grid>
 </UserControl>
