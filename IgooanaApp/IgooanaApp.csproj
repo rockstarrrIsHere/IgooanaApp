@@ -107,6 +107,9 @@
     <Compile Include="Controls\DashboardAcquisition.xaml.cs">
       <DependentUpon>DashboardAcquisition.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DashboardPageViews.xaml.cs">
+      <DependentUpon>DashboardPageViews.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,7 @@
     <Compile Include="AppState.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModel.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModelItem.cs" />
+    <Compile Include="ViewModels\DashboardPageViewsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -134,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DashboardAcquisition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DashboardPageViews.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

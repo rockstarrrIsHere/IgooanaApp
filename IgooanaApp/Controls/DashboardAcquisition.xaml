@@ -10,7 +10,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
-  <Grid x:Name="LayoutRoot" Background="#eeeeee">
+  <Grid x:Name="LayoutRoot" Background="LightGray">
     <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" />
     <charts:PieChart x:Name="AcquisitionChart" 
                      Visibility="Collapsed"
