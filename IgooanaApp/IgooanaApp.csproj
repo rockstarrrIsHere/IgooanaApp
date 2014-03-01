@@ -126,7 +126,7 @@
     <Compile Include="AppState.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModel.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModelItem.cs" />
-    <Compile Include="ViewModels\DashboardPageViewsViewModel.cs" />
+    <Compile Include="ViewModels\DashboardPageviewsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

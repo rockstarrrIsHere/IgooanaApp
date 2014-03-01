@@ -6,8 +6,8 @@ namespace IgooanaApp {
     private static readonly Lazy<AppState> lazy = new Lazy<AppState>(() => new AppState());
     private AppState(){
       // By default showing for last 30 days
-      StartDate = DateTime.Now.AddDays(-31);
-      EndDate = DateTime.Now.AddDays(-1);
+      StartDate = new DateTime(2014, 1, 28);
+      EndDate = new DateTime(2014, 2, 28);
     }
 
     internal static AppState Current { get { return lazy.Value; } }

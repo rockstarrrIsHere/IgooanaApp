@@ -20,10 +20,9 @@ namespace IgooanaApp.Controls {
 
     async void DashboardPageViews_Loaded(object sender, RoutedEventArgs e) {
       var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
-        .WithDimensions(Dimension.Time.DayOfWeek + Dimension.Time.Hour).WithMetrics(Metric.PageTracking.PageViews);
+        .WithDimensions(Dimension.Time.DayOfWeek + Dimension.Time.Hour).WithMetrics(Metric.PageTracking.Pageviews);
       var result = await Api.Current.Execute(query);
-      var viewModel = new DashboardPageViewsViewModel(result.Values, Color.FromArgb(255, 0, 0, 255));
-      var rand = new Random();
+      var viewModel = new DashboardPageviewsViewModel(result.Values, Color.FromArgb(255, 8, 146, 209));
       foreach (var cell in viewModel.Cells) {
         FrameworkElement fe = cell.Content;
         Grid.SetRow(fe, cell.GridRow);
