@@ -29,11 +29,21 @@ namespace IgooanaApp.ViewModels {
     private void FillCellData(IEnumerable<dynamic> gaRows) {
       for (int hour = 0; hour < HOURS_COUNT; hour++) {
         for (int dayOfWeek = 0; dayOfWeek < DAYS_IN_WEEK_COUNT; dayOfWeek++) {
-          dynamic gaValue = gaRows.First(x => int.Parse(x.DayOfWeek) == dayOfWeek && int.Parse(x.Hour) == hour);
+          dynamic gaValue = gaRows.FirstOrDefault(x => GetLocalDayOfWeekIndex(int.Parse(x.DayOfWeek)) == dayOfWeek && int.Parse(x.Hour) == hour);
           if (gaValue != null) {
             cellData[hour, dayOfWeek] = gaValue.Pageviews;
           }
         }
+      }
+    }
+
+    private int GetLocalDayOfWeekIndex(int index) {
+      if (dateTimeFormatInfo.FirstDayOfWeek == DayOfWeek.Sunday) {
+        // the data from GA comes in this format already, no need to do anything
+        return index;
+      }
+      else {
+        return DAYS_IN_WEEK_COUNT - (int)dateTimeFormatInfo.FirstDayOfWeek + index;
       }
     }
 
