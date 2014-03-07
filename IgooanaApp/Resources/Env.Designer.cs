@@ -77,5 +77,41 @@ namespace IgooanaApp.Resources {
                 return ResourceManager.GetString("ApiClientSecret", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to + {0} other country(ies)/territory(ies).
+        /// </summary>
+        internal static string VisitsByCountryCountriesOverallTemplate {
+            get {
+                return ResourceManager.GetString("VisitsByCountryCountriesOverallTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.  {1} visit(s) from {2}.
+        /// </summary>
+        internal static string VisitsByCountryStringTemplate {
+            get {
+                return ResourceManager.GetString("VisitsByCountryStringTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visits.
+        /// </summary>
+        internal static string VisitsByCountryTitle {
+            get {
+                return ResourceManager.GetString("VisitsByCountryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} visit(s).
+        /// </summary>
+        internal static string VisitsByCountryTotalStringTemplate {
+            get {
+                return ResourceManager.GetString("VisitsByCountryTotalStringTemplate", resourceCulture);
+            }
+        }
     }
 }

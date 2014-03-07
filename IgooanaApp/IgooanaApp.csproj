@@ -110,6 +110,9 @@
     <Compile Include="Controls\DashboardPageViews.xaml.cs">
       <DependentUpon>DashboardPageViews.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DashboardVisitsByCountry.xaml.cs">
+      <DependentUpon>DashboardVisitsByCountry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -126,7 +129,8 @@
     <Compile Include="AppState.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModel.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModelItem.cs" />
-    <Compile Include="ViewModels\DashboardPageviewsViewModel.cs" />
+    <Compile Include="ViewModels\DashboardPageViewsViewModel.cs" />
+    <Compile Include="ViewModels\DashboardVisitsByCountryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -142,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DashboardPageViews.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DashboardVisitsByCountry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

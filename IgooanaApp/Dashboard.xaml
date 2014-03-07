@@ -20,9 +20,11 @@
         <Grid.RowDefinitions>
           <RowDefinition Height="*"/>
           <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <localControls:DashboardAcquisition Margin="10" MinHeight="500"/>
-        <localControls:DashboardPageViews Grid.Row="1" Margin="10"/>
+        <localControls:DashboardVisitsByCountry/>
+        <localControls:DashboardAcquisition Grid.Row="1" MinHeight="500"/>
+        <localControls:DashboardPageViews Grid.Row="2" />
       </Grid>
       
     </ScrollViewer>
