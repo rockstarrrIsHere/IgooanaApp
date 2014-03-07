@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 namespace IgooanaApp.ViewModels {
   public class DashboardAcquisitionViewModel : ObservableCollection<IDashboardAcquisitionItem> {
-    const float MinimumSlicePercent = .01f;
+    const float MinimumSlicePercent = .005f;
     public DashboardAcquisitionViewModel(IEnumerable<dynamic> gaRows) {
       var totalVisits = gaRows.Sum(x => x.Visits);
       foreach (var row in gaRows.OrderByDescending(x => x.Visits).TakeWhile(x => Convert.ToSingle(x.Visits) / totalVisits > MinimumSlicePercent)) {

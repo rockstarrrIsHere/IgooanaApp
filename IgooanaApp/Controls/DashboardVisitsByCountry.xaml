@@ -21,7 +21,7 @@
     <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="10" Padding="5" TextWrapping="Wrap" Text="Visits" VerticalAlignment="Top" FontSize="28" Foreground="Black" />
     <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="10" Padding="5" Grid.Row="1" Text="{Binding VisitsTotal}" TextWrapping="Wrap" Name="visitorsOverall" VerticalAlignment="Top" Width="460" FontSize="28" Foreground="Black"/>
     <StackPanel x:Name="visitorsPanel"  HorizontalAlignment="Stretch"  Margin="10" Grid.Row="2" VerticalAlignment="Stretch" >
-      <ListBox ItemsSource="{Binding VisitsByCountry}" Foreground="Black">
+      <ListBox ItemsSource="{Binding VisitsByCountry}" Foreground="Black" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         <ListBox.ItemTemplate>
           <DataTemplate>
             <TextBlock Text="{Binding}" HorizontalAlignment="Stretch" FontSize="28" Foreground="Black"/>
