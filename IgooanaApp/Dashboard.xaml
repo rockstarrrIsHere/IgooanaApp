@@ -15,7 +15,17 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
   <local:Layout>
-    <localControls:DashboardPageViews Margin="10"/>
+    <ScrollViewer>
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <localControls:DashboardAcquisition Margin="10" MinHeight="500"/>
+        <localControls:DashboardPageViews Grid.Row="1" Margin="10"/>
+      </Grid>
+      
+    </ScrollViewer>
   </local:Layout>
 
 
