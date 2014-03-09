@@ -8,5 +8,12 @@
     <ResourceDictionary Source="/IgooanaApp;component/Themes/Legend.xaml"/>
     <ResourceDictionary Source="/IgooanaApp;component/Themes/Slice.xaml"/>
     <ResourceDictionary Source="/IgooanaApp;component/Themes/PieChart.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp;component/Themes/CategoryAxis.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp;component/Themes/ColumnGraph.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp;component/Themes/Indicator.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp;component/Themes/ValueAxis.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp;component/Themes/ValueGrid.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp;component/Themes/SerialChart.xaml"/>
+    
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

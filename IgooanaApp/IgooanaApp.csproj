@@ -98,12 +98,22 @@
     </Compile>
     <Compile Include="Charts\Balloon.cs" />
     <Compile Include="Charts\BindingEvaluator.cs" />
+    <Compile Include="Charts\CategoryAxis.cs" />
+    <Compile Include="Charts\ColumnGraph.cs" />
+    <Compile Include="Charts\DataPathEventArgs.cs" />
+    <Compile Include="Charts\DiscreetClearObservableCollection.cs" />
     <Compile Include="Charts\ILegendItem.cs" />
+    <Compile Include="Charts\Indicator.cs" />
     <Compile Include="Charts\Legend.cs" />
     <Compile Include="Charts\LegendItem.cs" />
+    <Compile Include="Charts\LineGraph.cs" />
     <Compile Include="Charts\PieChart.cs" />
+    <Compile Include="Charts\SerialChart.cs" />
+    <Compile Include="Charts\SerialGraph.cs" />
     <Compile Include="Charts\Slice.cs" />
     <Compile Include="Charts\TreeHelper.cs" />
+    <Compile Include="Charts\ValueAxis.cs" />
+    <Compile Include="Charts\ValueGrid.cs" />
     <Compile Include="Controls\DashboardAcquisition.xaml.cs">
       <DependentUpon>DashboardAcquisition.xaml</DependentUpon>
     </Compile>
@@ -165,6 +175,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\CategoryAxis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ColumnGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Indicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Layout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -177,7 +199,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\SerialChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Slice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ValueAxis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ValueGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
