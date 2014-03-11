@@ -117,6 +117,9 @@
     <Compile Include="Controls\DashboardAcquisition.xaml.cs">
       <DependentUpon>DashboardAcquisition.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DashboardGoals.xaml.cs">
+      <DependentUpon>DashboardGoals.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DashboardPageViews.xaml.cs">
       <DependentUpon>DashboardPageViews.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DashboardAcquisition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DashboardGoals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,6 +8,8 @@
   <Application.Resources>
     <Color x:Key="AccentBackgroundColor">#f78c40</Color>
     <Color x:Key="AccentForegroundColor">#ffffff</Color>
+    <SolidColorBrush x:Key="AccentBackgroundBrush" Color="{StaticResource AccentBackgroundColor}"/>
+    <SolidColorBrush x:Key="AccentForegrundBrush" Color="{StaticResource AccentForegroundColor}"/>
   </Application.Resources>
 
   <Application.ApplicationLifetimeObjects>

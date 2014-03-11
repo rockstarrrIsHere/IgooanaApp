@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="IgooanaApp.Controls.DashboardGoals"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:charts="clr-namespace:IgooanaApp.Charts"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+  <Grid Background="White">
+    <charts:SerialChart x:Name="chart1" Height="200" DataSource="{Binding Data}" CategoryValueMemberPath="X"
+                         AxisForeground="LightGray"
+                         PlotAreaBackground="White"
+                             MinimumCategoryGridStep="200"
+                         GridStroke="Gray">
+      <charts:SerialChart.Graphs>
+        <charts:ColumnGraph ValueMemberPath="Y" Title="Goals" Brush="{StaticResource AccentBackgroundBrush}" 
+                            ColumnWidthAllocation="0.9" />
+      </charts:SerialChart.Graphs>
+    </charts:SerialChart>
+
+  </Grid>
+
+</UserControl>

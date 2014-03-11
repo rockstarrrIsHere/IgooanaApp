@@ -7,7 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:IgooanaApp"
-    xmlns:charts="clr-namespace:IgooanaApp.Charts"
     xmlns:localControls="clr-namespace:IgooanaApp.Controls"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -25,27 +24,14 @@
           <RowDefinition Height="*"/>
           <RowDefinition Height="*"/>
           <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <localControls:DashboardVisitsByCountry/>
         <localControls:DashboardAcquisition Grid.Row="1" MinHeight="500"/>
         <localControls:DashboardPageViews Grid.Row="2" />
+        <localControls:DashboardGoals Grid.Row="3"/>
       </Grid>
 
     </ScrollViewer>
   </local:Layout>
-  <!--<Grid Background="Transparent">
-    <charts:SerialChart x:Name="chart1" DataSource="{Binding Data}" CategoryValueMemberPath="cat1"
-                         AxisForeground="White"
-                         PlotAreaBackground="Black"
-                             MinimumCategoryGridStep="200"
-                         GridStroke="DarkGray">
-      <charts:SerialChart.Graphs>
-        <charts:ColumnGraph ValueMemberPath="val2" Title="Column #2" Brush="#8000FF00" ColumnWidthAllocation="0.8" />
-      </charts:SerialChart.Graphs>
-    </charts:SerialChart>
-
-  </Grid>-->
-
-
-
 </phone:PhoneApplicationPage>

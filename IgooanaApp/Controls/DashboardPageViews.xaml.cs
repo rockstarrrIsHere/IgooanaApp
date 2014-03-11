@@ -22,7 +22,7 @@ namespace IgooanaApp.Controls {
       var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
         .WithDimensions(Dimension.Time.DayOfWeek + Dimension.Time.Hour).WithMetrics(Metric.PageTracking.Pageviews);
       var result = await Api.Current.Execute(query);
-      var viewModel = new DashboardPageviewsViewModel(result.Values, Color.FromArgb(255, 8, 146, 209));
+      var viewModel = new DashboardPageviewsViewModel(result.Values, Color.FromArgb(255, 247, 140, 64));
       foreach (var cell in viewModel.Cells) {
         FrameworkElement fe = cell.Content;
         Grid.SetRow(fe, cell.GridRow);
