@@ -9,6 +9,8 @@ using Microsoft.Phone.Shell;
 
 namespace IgooanaApp {
   public partial class App : Application {
+
+    public const string AccentBackgroundColor = "AccentBackgroundColor";
     /// <summary>
     /// Provides easy access to the root frame of the Phone Application.
     /// </summary>

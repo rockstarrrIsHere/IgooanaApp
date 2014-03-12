@@ -1,9 +1,5 @@
 ﻿using Igooana;
 using IgooanaApp.ViewModels;
-using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 

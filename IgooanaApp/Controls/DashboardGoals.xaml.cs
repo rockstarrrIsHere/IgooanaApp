@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Igooana;
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,27 +10,15 @@ namespace IgooanaApp.Controls {
     private Random r = new Random();
     public DashboardGoals() {
       InitializeComponent();
-      Loaded += DashboardGoals_Loaded;
+      Loaded += OnLoaded;
     }
 
-    void DashboardGoals_Loaded(object sender, RoutedEventArgs e) {
-      for (int i = 1; i < 31; i++) {
-        _data.Add(new TestDataItem(r) { X = i.ToString() });
-      }
-      this.DataContext = this;
+    async void OnLoaded(object sender, RoutedEventArgs e) {
+      var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
+        .WithMetrics(Metric.GoalConversions.GoalCompletionsAll)
+        .WithDimensions(Dimension.Time.Date);
+      var results = await Api.Current.Execute(query);
+      GoalsChart.DataSource = results.Values.Select(x => new { Date = x.Date, GoalConversions = x.GoalCompletionsAll });
     }
-    private ObservableCollection<TestDataItem> _data = new ObservableCollection<TestDataItem>();
-
-    public ObservableCollection<TestDataItem> Data { get { return _data; } }
-
-
-  }
-  public class TestDataItem {
-    private readonly string y;
-    public TestDataItem(Random r) {
-      y = r.Next(0, 50).ToString();
-    }
-    public string X { get; set; }
-    public string Y { get { return y; } }
   }
 }

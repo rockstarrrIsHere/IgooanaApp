@@ -5,20 +5,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:charts="clr-namespace:IgooanaApp.Charts"
     mc:Ignorable="d"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
   <Grid Background="White">
-    <charts:SerialChart x:Name="chart1" Height="200" DataSource="{Binding Data}" CategoryValueMemberPath="X"
+    <charts:SerialChart x:Name="GoalsChart" Height="200" CategoryValueMemberPath="Date"
                          AxisForeground="LightGray"
-                         PlotAreaBackground="White"
-                             MinimumCategoryGridStep="200"
-                         GridStroke="Gray">
+                         PlotAreaBackground="White" MinimumCategoryGridStep="200" GridStroke="Gray">
       <charts:SerialChart.Graphs>
-        <charts:ColumnGraph ValueMemberPath="Y" Title="Goals" Brush="{StaticResource AccentBackgroundBrush}" 
-                            ColumnWidthAllocation="0.9" />
+        <charts:ColumnGraph ValueMemberPath="GoalConversions" Title="Goals" Brush="{StaticResource AccentBackgroundBrush}" ColumnWidthAllocation="0.9" />
       </charts:SerialChart.Graphs>
     </charts:SerialChart>
 

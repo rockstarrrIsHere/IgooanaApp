@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using Igooana;
+using IgooanaApp.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using Igooana;
-using IgooanaApp.ViewModels;
 using System.Windows.Media;
 
 namespace IgooanaApp.Controls {
@@ -22,7 +15,8 @@ namespace IgooanaApp.Controls {
       var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
         .WithDimensions(Dimension.Time.DayOfWeek + Dimension.Time.Hour).WithMetrics(Metric.PageTracking.Pageviews);
       var result = await Api.Current.Execute(query);
-      var viewModel = new DashboardPageviewsViewModel(result.Values, Color.FromArgb(255, 247, 140, 64));
+      var color = (Color)Application.Current.Resources[App.AccentBackgroundColor];
+      var viewModel = new DashboardPageviewsViewModel(result.Values, color);
       foreach (var cell in viewModel.Cells) {
         FrameworkElement fe = cell.Content;
         Grid.SetRow(fe, cell.GridRow);

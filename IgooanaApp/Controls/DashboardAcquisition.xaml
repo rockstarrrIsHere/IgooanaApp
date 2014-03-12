@@ -11,7 +11,7 @@
     d:DesignHeight="480" d:DesignWidth="480">
 
   <Grid x:Name="LayoutRoot" Background="White">
-    <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" />
+    <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
     <charts:PieChart x:Name="AcquisitionChart" 
                      Visibility="Collapsed"
                      ValueMemberPath="Value"
