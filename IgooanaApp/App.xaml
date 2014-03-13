@@ -6,10 +6,13 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
 
   <Application.Resources>
+    <local:LocalizedStrings xmlns:local="clr-namespace:IgooanaApp" x:Key="LocalizedStrings"/>
     <Color x:Key="AccentBackgroundColor">#f78c40</Color>
     <Color x:Key="AccentForegroundColor">#ffffff</Color>
     <SolidColorBrush x:Key="AccentBackgroundBrush" Color="{StaticResource AccentBackgroundColor}"/>
     <SolidColorBrush x:Key="AccentForegrundBrush" Color="{StaticResource AccentForegroundColor}"/>
+    <SolidColorBrush x:Key="CommonForegroundBrush" Color="Black" />
+    
   </Application.Resources>
 
   <Application.ApplicationLifetimeObjects>

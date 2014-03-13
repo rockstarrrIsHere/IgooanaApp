@@ -22,24 +22,24 @@ namespace IgooanaApp.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Env {
+    public class Localization {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Env() {
+        internal Localization() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IgooanaApp.Resources.Env", typeof(Env).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IgooanaApp.Resources.Localization", typeof(Localization).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace IgooanaApp.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,30 +61,38 @@ namespace IgooanaApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 15132115543.apps.googleusercontent.com.
+        ///   Looks up a localized string similar to + {0} other country(ies)/territory(ies).
         /// </summary>
-        internal static string ApiClientId {
+        public static string VisitsByCountryCountriesOverallTemplate {
             get {
-                return ResourceManager.GetString("ApiClientId", resourceCulture);
+                return ResourceManager.GetString("VisitsByCountryCountriesOverallTemplate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1n6lLaVJQplUpzDcbSQUhVO4.
+        ///   Looks up a localized string similar to from {0}.
         /// </summary>
-        internal static string ApiClientSecret {
+        public static string VisitsByCountryStringTemplate {
             get {
-                return ResourceManager.GetString("ApiClientSecret", resourceCulture);
+                return ResourceManager.GetString("VisitsByCountryStringTemplate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to Audience.
         /// </summary>
-        internal static byte[] People {
+        public static string VisitsByCountryTitle {
             get {
-                object obj = ResourceManager.GetObject("People", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("VisitsByCountryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visits.
+        /// </summary>
+        public static string VisitsByCountryTotal {
+            get {
+                return ResourceManager.GetString("VisitsByCountryTotal", resourceCulture);
             }
         }
     }
