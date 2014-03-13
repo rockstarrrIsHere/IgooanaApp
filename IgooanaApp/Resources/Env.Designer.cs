@@ -77,15 +77,5 @@ namespace IgooanaApp.Resources {
                 return ResourceManager.GetString("ApiClientSecret", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] People {
-            get {
-                object obj = ResourceManager.GetObject("People", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

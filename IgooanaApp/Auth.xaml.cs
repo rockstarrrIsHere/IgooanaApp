@@ -21,7 +21,7 @@ namespace IgooanaApp {
           NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
         }
       }
-      catch (AccessRefusedException) {
+      catch (Exception) {
         MessageBox.Show("You must allow accessing your information in order to use the application");
       }
     }
