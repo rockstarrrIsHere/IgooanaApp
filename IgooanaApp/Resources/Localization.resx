@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ApiClientId" xml:space="preserve">
-    <value>15132115543.apps.googleusercontent.com</value>
-    <comment>Google Analytics API Client ID</comment>
+  <data name="VisitsByCountryCountriesOverallTemplate" xml:space="preserve">
+    <value>+ {0} other country(ies)/territory(ies)</value>
   </data>
-  <data name="ApiClientSecret" xml:space="preserve">
-    <value>1n6lLaVJQplUpzDcbSQUhVO4</value>
-    <comment>Google Analytics API Client Secret</comment>
+  <data name="VisitsByCountryStringTemplate" xml:space="preserve">
+    <value>from {0}</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="People" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>People.png;System.Byte[], mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e</value>
+  <data name="VisitsByCountryTitle" xml:space="preserve">
+    <value>Audience</value>
+  </data>
+  <data name="VisitsByCountryTotal" xml:space="preserve">
+    <value>Visits</value>
   </data>
 </root>

@@ -130,6 +130,7 @@
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Layout.cs" />
+    <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Profiles.xaml.cs">
       <DependentUpon>Profiles.xaml</DependentUpon>
     </Compile>
@@ -140,6 +141,11 @@
       <DependentUpon>Env.resx</DependentUpon>
     </Compile>
     <Compile Include="AppState.cs" />
+    <Compile Include="Resources\Localization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Localization.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\DashboardAcquisitionViewModel.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModelItem.cs" />
     <Compile Include="ViewModels\DashboardPageViewsViewModel.cs" />
@@ -254,12 +260,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.png" />
+    <Resource Include="Resources\People.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Env.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Env.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Localization.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

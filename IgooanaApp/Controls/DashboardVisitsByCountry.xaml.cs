@@ -27,7 +27,7 @@ namespace IgooanaApp.Controls {
       
       var result = await Api.Current.Execute(query);
       var viewModel = new DashboardVisitsByCountryViewModel(result.Values,result.Totals);
-
+     
       LayoutRoot.DataContext = viewModel;
     }
   }
