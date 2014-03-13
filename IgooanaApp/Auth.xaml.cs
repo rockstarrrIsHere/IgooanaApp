@@ -1,8 +1,8 @@
-﻿using Microsoft.Phone.Controls;
-using System.Windows;
-using Igooana;
+﻿using Igooana;
 using IgooanaApp.Resources;
+using Microsoft.Phone.Controls;
 using System;
+using System.Windows;
 
 namespace IgooanaApp {
   public partial class Auth : PhoneApplicationPage {
@@ -16,8 +16,13 @@ namespace IgooanaApp {
     }
 
     private async void OnNavigating(object sender, NavigatingEventArgs e) {
-      if (await api.Authenticate(e.Uri)) {
-        NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
+      try {
+        if (await api.Authenticate(e.Uri)) {
+          NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
+        }
+      }
+      catch (AccessRefusedException) {
+        MessageBox.Show("You must allow accessing your information in order to use the application");
       }
     }
   }

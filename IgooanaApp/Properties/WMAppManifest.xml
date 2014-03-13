@@ -4,8 +4,8 @@
   <Languages xmlns="">
     <Language code="ru" />
   </Languages>
-  <App xmlns="" ProductID="{2f629397-b18f-4597-9096-efae40c575ef}" Title="Igooana" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="IgooanaApp author" Description="Full featured Google Analytics app for Windows Phone 8&#xD;&#xA;" Publisher="IgooanaApp" PublisherID="{a00a554e-74be-4958-a4da-a2d25345b8a6}">
-    <IconPath IsRelative="true" IsResource="false">icon.png</IconPath>
+  <App xmlns="" ProductID="{2f629397-b18f-4597-9096-efae40c575ef}" Title="Igooana" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="IgooanaApp author" Description="The Google Analytics Client For Windows Phone 8&#xD;&#xA;" Publisher="IgooanaApp" PublisherID="{a00a554e-74be-4958-a4da-a2d25345b8a6}">
+    <IconPath IsRelative="true" IsResource="false">Assets\icon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />

@@ -22,7 +22,7 @@ namespace IgooanaApp {
     /// </summary>
     public App() {
       // Global handler for uncaught exceptions.
-      UnhandledException += Application_UnhandledException;
+      //UnhandledException += Application_UnhandledException;
 
       // Standard XAML initialization
       InitializeComponent();
