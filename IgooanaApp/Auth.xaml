@@ -11,13 +11,20 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True" shell:SystemTray.Opacity="0">
 
-  <Grid x:Name="LayoutRoot" Background="Transparent">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"/>
-      <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
-    <Image Source="/Assets/login-topbar-768.png"/>
-    <phone:WebBrowser Grid.Row="1" Name="Browser" IsScriptEnabled="True"  Navigating="OnNavigating"/>
+
+  <Grid x:Name="LayoutRoot" Background="{StaticResource HardAccentBackgroundBrush}">
+    <Grid x:Name="BackgroundGrid" Visibility="Collapsed">
+      <Image Source="/SplashScreenImage.jpg"/>
+    </Grid>
+
+    <Grid x:Name="BrowserGrid">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <Image Source="/Assets/login-topbar-768.png"/>
+      <phone:WebBrowser Grid.Row="1" Name="Browser" IsScriptEnabled="True"  Navigating="OnNavigating" Navigated="OnNavigated"/>
+    </Grid>
   </Grid>
 
 </phone:PhoneApplicationPage>

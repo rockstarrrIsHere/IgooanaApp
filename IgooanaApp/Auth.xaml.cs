@@ -2,6 +2,7 @@
 using IgooanaApp.Resources;
 using Microsoft.Phone.Controls;
 using System;
+using System.Diagnostics;
 using System.Windows;
 
 namespace IgooanaApp {
@@ -24,6 +25,11 @@ namespace IgooanaApp {
       catch (Exception) {
         MessageBox.Show("You must allow accessing your information in order to use the application");
       }
+    }
+
+    private void OnNavigated(object sender, System.Windows.Navigation.NavigationEventArgs e) {
+      BackgroundGrid.Visibility = Visibility.Collapsed;
+      BrowserGrid.Visibility = Visibility.Visible;
     }
   }
 }
