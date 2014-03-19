@@ -13,11 +13,12 @@
 
 
   <Grid x:Name="LayoutRoot" Background="{StaticResource HardAccentBackgroundBrush}">
-    <Grid x:Name="BackgroundGrid" Visibility="Collapsed">
+    <Grid x:Name="BackgroundGrid">
       <Image Source="/SplashScreenImage.jpg"/>
+      <ProgressBar IsIndeterminate="True" Foreground="{StaticResource AccentForegrundBrush}"/>
     </Grid>
 
-    <Grid x:Name="BrowserGrid">
+    <Grid x:Name="BrowserGrid" Visibility="Collapsed">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="*"/>
