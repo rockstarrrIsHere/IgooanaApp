@@ -130,6 +130,7 @@
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PhoneStorage.cs" />
     <Compile Include="Layout.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Profiles.xaml.cs">

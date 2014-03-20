@@ -11,18 +11,32 @@ namespace IgooanaApp {
     public Auth() {
       InitializeComponent();
     }
-    private void AuthLoaded(object sender, RoutedEventArgs e) {
-      api = new Api(Env.ApiClientId, Env.ApiClientSecret);
-      Browser.Navigate(api.AuthenticateUri);
+    private async void AuthLoaded(object sender, RoutedEventArgs e) {
+      if (PhoneStorage.AccessTokenExists) {
+        try {
+          await Api.Restore(PhoneStorage.AccessToken);
+          NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
+        }
+        catch (UnauthorizedException) {
+          //token was revoked
+          StartAuthentication();
+        }
+      }
+      else {
+        StartAuthentication();
+      }
     }
 
     private async void OnNavigating(object sender, NavigatingEventArgs e) {
       try {
-        if (await api.Authenticate(e.Uri)) {
+        AuthResponse response = await api.Authenticate(e.Uri);
+        if (response.IsAuthenticated) {
+          PhoneStorage.AccessToken = response.AccessToken;
           NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
         }
       }
       catch (AccessRefusedException) {
+        PhoneStorage.ClearCredentials();
         MessageBox.Show(Localization.OAuthUserConsentDenyMessage);
         Browser.Navigate(api.AuthenticateUri);
       }
@@ -34,6 +48,11 @@ namespace IgooanaApp {
     private void OnNavigated(object sender, System.Windows.Navigation.NavigationEventArgs e) {
       BackgroundGrid.Visibility = Visibility.Collapsed;
       BrowserGrid.Visibility = Visibility.Visible;
+    }
+
+    private void StartAuthentication() {
+      api = new Api(Env.ApiClientId, Env.ApiClientSecret);
+      Browser.Navigate(api.AuthenticateUri);
     }
   }
 }
