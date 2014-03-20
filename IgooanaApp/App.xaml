@@ -9,9 +9,11 @@
   <Application.Resources>
     <local:LocalizedStrings xmlns:local="clr-namespace:IgooanaApp" x:Key="LocalizedStrings"/>
     <Color x:Key="AccentBackgroundColor">#f78c40</Color>
+    <Color x:Key="AccentFontColor">#f78c40</Color>
     <Color x:Key="AccentForegroundColor">#ffffff</Color>
     <Color x:Key="HardAccentBackgroundColor">#f76700</Color>
     <SolidColorBrush x:Key="AccentBackgroundBrush" Color="{StaticResource AccentBackgroundColor}"/>
+    <SolidColorBrush x:Key="AccentFontBrush" Color="{StaticResource AccentFontColor}"/>
     <SolidColorBrush x:Key="AccentForegrundBrush" Color="{StaticResource AccentForegroundColor}"/>
     <SolidColorBrush x:Key="CommonForegroundBrush" Color="Black" />
     <SolidColorBrush x:Key="HardAccentBackgroundBrush" Color="{StaticResource HardAccentBackgroundColor}" />
@@ -22,7 +24,7 @@
     <System:Double x:Key="AccentedFontSize">52</System:Double>
     
     <Style TargetType="TextBlock" x:Key="ControlTitleText">
-      <Setter Property="Foreground" Value="{StaticResource AccentForegrundBrush}"/>
+      <Setter Property="Foreground" Value="{StaticResource AccentFontBrush}"/>
       <Setter Property="FontSize" Value="{StaticResource PreAccentedFontSize}"/>
       <Setter Property="HorizontalAlignment" Value="Stretch"/>
       <Setter Property="VerticalAlignment" Value="Stretch"/>

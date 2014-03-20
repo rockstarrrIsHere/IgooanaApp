@@ -19,6 +19,10 @@ namespace IgooanaApp.Controls {
       InitializeComponent();
       Loaded += DashboardVisitsByCountry_Loaded;
     }
+    private void ToggleLoading() {
+      ProgressBar.Visibility = ViewHelper.ToggleVisibility(ProgressBar.Visibility);
+      VisitsLayout.Visibility = ViewHelper.ToggleVisibility(VisitsLayout.Visibility);
+    }
 
     async void DashboardVisitsByCountry_Loaded(object sender, RoutedEventArgs e) {
       Query query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
@@ -33,6 +37,7 @@ namespace IgooanaApp.Controls {
       LayoutRoot.DataContext = viewModel;
       int maxDigitsCount = viewModel.VisitsByCountry.First().Count.ToString().Length;
       visitorsByCountry.ItemsSource = viewModel.VisitsByCountry.Select(item => new { Count = item.Count, Text = item.Text, Number = item.Number, CountFieldWidth = maxDigitsCount * visitsCountLetterWidth });
+      ToggleLoading();
     }
   }
 }

@@ -121,8 +121,13 @@
     <value>You must allow accessing your information in order to use the application</value>
     <comment>Shown when a Google OAuth2 confirmation dialog is shown in a browser control and user denies the access.</comment>
   </data>
-  <data name="VisitsByCountryCountriesOverallTemplate" xml:space="preserve">
-    <value>+ {0} other country(ies)/territory(ies)</value>
+  <data name="VisitsByCountryCountriesRestTemplatePlural" xml:space="preserve">
+    <value>+ {0} other countries</value>
+    <comment>Shown when more than one country haven't been displayed</comment>
+  </data>
+  <data name="VisitsByCountryCountriesRestTemplateSingle" xml:space="preserve">
+    <value>+ {0} other country</value>
+    <comment>Shown when one county hasn't been displayed </comment>
   </data>
   <data name="VisitsByCountryStringTemplate" xml:space="preserve">
     <value>from {0}</value>

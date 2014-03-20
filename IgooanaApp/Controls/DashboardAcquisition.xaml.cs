@@ -11,15 +11,8 @@ namespace IgooanaApp.Controls {
     }
 
     private void ToggleLoading() {
-      ProgressBar.Visibility = ToggleVisibility(ProgressBar.Visibility);
-      AcquisitionChart.Visibility = ToggleVisibility(AcquisitionChart.Visibility);
-    }
-
-    private Visibility ToggleVisibility(Visibility visibility) {
-      if (visibility == System.Windows.Visibility.Collapsed) {
-        return System.Windows.Visibility.Visible;
-      }
-      return System.Windows.Visibility.Collapsed;
+      ProgressBar.Visibility = ViewHelper.ToggleVisibility(ProgressBar.Visibility);
+      AcquisitionChart.Visibility = ViewHelper.ToggleVisibility(AcquisitionChart.Visibility);
     }
 
     async void OnLoaded(object sender, RoutedEventArgs e) {

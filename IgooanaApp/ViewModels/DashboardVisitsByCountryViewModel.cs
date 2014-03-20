@@ -23,7 +23,7 @@ namespace IgooanaApp.ViewModels {
     public IEnumerable<dynamic> VisitsByCountry { get { return visitsByCountry; } }
     public string CountriesOverall { 
       get {
-        return restCountriesCount > 1 ? String.Format(Localization.VisitsByCountryCountriesOverallTemplate, restCountriesCount)
+        return restCountriesCount > 1 ? String.Format(LocalizedStrings.PluralizedTemplate("VisitsByCountryCountriesRestTemplate", restCountriesCount), restCountriesCount)
           : String.Empty;
         } 
     }

@@ -148,6 +148,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Localization.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewHelper.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModel.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModelItem.cs" />
     <Compile Include="ViewModels\DashboardPageViewsViewModel.cs" />

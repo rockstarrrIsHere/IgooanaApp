@@ -66,40 +66,48 @@
   <Grid x:Name="LayoutRoot" Background="White" ShowGridLines="False">
     <Grid.RowDefinitions>
       <RowDefinition Height="*"/>
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="8*"/>
+      <RowDefinition Height="9*"/>
     </Grid.RowDefinitions>
 
     <TextBlock Text="{Binding LocalizedResources.VisitsByCountryTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource ControlTitleText}"/>
     
-    <StackPanel Grid.Row="1"  Orientation="Horizontal" VerticalAlignment="Bottom">
-      <StackPanel.Resources>
-        <Style TargetType="TextBlock">
-          <Setter Property="Height" Value="auto"/>
-          <Setter Property="VerticalAlignment" Value="Bottom"/>
-        </Style>
-      </StackPanel.Resources>
-      <TextBlock FontSize="{StaticResource PreAccentedFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
-      <Image Style="{StaticResource PeopleImage}"/>
-      <TextBlock FontSize="{StaticResource AccentedFontSize}" Text="{Binding VisitsTotal}"/>
-    </StackPanel>
-    
-    <StackPanel HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Stretch" >
-      <ListBox x:Name="visitorsByCountry" ItemsSource="{Binding VisitsByCountry}" Foreground="{StaticResource CommonForegroundBrush}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="{StaticResource VisitsListItemMargin}">
-              <Border CornerRadius="26" Style="{StaticResource NumberBulletBorderStyle}" >
-                <TextBlock Style="{StaticResource NumberBulletStyle}" Text="{Binding Number}" />
-              </Border>
-              <TextBlock Text="{Binding Count}" Width="{Binding CountFieldWidth}" Style="{StaticResource CountVisitsStyle}" />
-              <TextBlock Text="{Binding Text}" Style="{StaticResource CountryTextStyle}"/>
-            </StackPanel>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
+    <ProgressBar x:Name="ProgressBar" Grid.Row="1" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
+    <Grid x:Name="VisitsLayout" Visibility="Collapsed" Background="White" ShowGridLines="False" Grid.Row="1">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="8*"/>
+      </Grid.RowDefinitions>
+      
+      <StackPanel Grid.Row="0"  Orientation="Horizontal" VerticalAlignment="Bottom">
+        <StackPanel.Resources>
+          <Style TargetType="TextBlock">
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+          </Style>
+        </StackPanel.Resources>
+        <TextBlock FontSize="{StaticResource PreAccentedFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
+        <Image Style="{StaticResource PeopleImage}"/>
+        <TextBlock FontSize="{StaticResource AccentedFontSize}" Text="{Binding VisitsTotal}"/>
+      </StackPanel>
+
+      <StackPanel HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" >
+        <ListBox x:Name="visitorsByCountry" ItemsSource="{Binding VisitsByCountry}" Foreground="{StaticResource CommonForegroundBrush}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="{StaticResource VisitsListItemMargin}">
+                <Border CornerRadius="26" Style="{StaticResource NumberBulletBorderStyle}" >
+                  <TextBlock Style="{StaticResource NumberBulletStyle}" Text="{Binding Number}" />
+                </Border>
+                <TextBlock Text="{Binding Count}" Width="{Binding CountFieldWidth}" Style="{StaticResource CountVisitsStyle}" />
+                <TextBlock Text="{Binding Text}" Style="{StaticResource CountryTextStyle}"/>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock HorizontalAlignment="Stretch" Grid.Row="2" Text="{Binding CountriesOverall}" Margin="{StaticResource OtherCountriesItemMargin}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="{StaticResource PreAccentedSmallerFontSize}"/>
-    </StackPanel>
+      </StackPanel>
+    </Grid>
     
   </Grid>
+  
 </UserControl>
