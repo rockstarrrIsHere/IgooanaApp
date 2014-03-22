@@ -13,7 +13,8 @@ using IgooanaApp.ViewModels;
 namespace IgooanaApp.Controls {
   public partial class DashboardVisitsByCountry : UserControl {
 
-    const int visitsCountLetterWidth = 20;
+    const int visitsCountLetterWidth = 16;
+    const int startCountOverallTextLevel = 2;
 
     public DashboardVisitsByCountry() {
       InitializeComponent();
@@ -32,11 +33,9 @@ namespace IgooanaApp.Controls {
         .OrderByDescending(Metric.Visitor.Visitors);
       
       var result = await Api.Current.Execute(query);
-      var viewModel = new DashboardVisitsByCountryViewModel(result.Values,result.Totals);
+      var viewModel = new DashboardVisitsByCountryViewModel(result.Values, result.Totals, new { LetterWidth = visitsCountLetterWidth, Level = startCountOverallTextLevel });
      
       LayoutRoot.DataContext = viewModel;
-      int maxDigitsCount = viewModel.VisitsByCountry.First().Count.ToString().Length;
-      visitorsByCountry.ItemsSource = viewModel.VisitsByCountry.Select(item => new { Count = item.Count, Text = item.Text, Number = item.Number, CountFieldWidth = maxDigitsCount * visitsCountLetterWidth });
       ToggleLoading();
     }
   }

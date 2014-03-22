@@ -70,7 +70,7 @@ namespace IgooanaApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to + {0} other countries.
+        ///   Looks up a localized string similar to +{0} other countries.
         /// </summary>
         public static string VisitsByCountryCountriesRestTemplatePlural {
             get {
@@ -79,7 +79,7 @@ namespace IgooanaApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to + {0} other country.
+        ///   Looks up a localized string similar to +{0} other country.
         /// </summary>
         public static string VisitsByCountryCountriesRestTemplateSingle {
             get {

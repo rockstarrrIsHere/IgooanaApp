@@ -18,7 +18,7 @@
    shell:SystemTray.ForegroundColor="{StaticResource AccentForegroundColor}">
 
   <local:Layout Background="Transparent">
-    <ScrollViewer>
+    <ScrollViewer Padding="30,0" Background="White">
       <Grid>
         <Grid.RowDefinitions>
           <RowDefinition Height="*"/>

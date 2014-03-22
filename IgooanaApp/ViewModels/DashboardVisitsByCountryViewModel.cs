@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace IgooanaApp.ViewModels {
   public class DashboardVisitsByCountryViewModel {
@@ -28,13 +29,23 @@ namespace IgooanaApp.ViewModels {
         } 
     }
 
-    public DashboardVisitsByCountryViewModel(IEnumerable<dynamic> gaRows, dynamic total) {
+    public Thickness PaddingCountriesOverall { get; private set; }
+
+    public DashboardVisitsByCountryViewModel(IEnumerable<dynamic> gaRows, dynamic total, dynamic overallViewSettings) {
       try {
         var listOfVisits = gaRows.Take(SHOW_ROWS_COUNT).Select(x => new {Visitors = x.Visitors, Country = x.Country});
         totalVisitsCount = total.Visitors;
         restCountriesCount = gaRows.Count() - SHOW_ROWS_COUNT;
-        
-        visitsByCountry = listOfVisits.Select((item, index) => new {Count = item.Visitors, Text = String.Format(Localization.VisitsByCountryStringTemplate, item.Country), Number =  index + 1});
+
+        int maxDigitsCount = gaRows.First().Visitors.ToString().Length;
+        visitsByCountry = listOfVisits.Select((item, index) => new { 
+          Count = item.Visitors, 
+          Text = String.Format(Localization.VisitsByCountryStringTemplate, item.Country),
+          Number = index + 1, 
+          CountFieldWidth = maxDigitsCount * overallViewSettings.LetterWidth });
+
+        //OtherCountriesItemMargin should be Bullet width + Count margin
+        PaddingCountriesOverall = new Thickness(overallViewSettings.LetterWidth * (maxDigitsCount > overallViewSettings.Level ? maxDigitsCount - overallViewSettings.Level : 0) , 0, 0, 0);
       }
       catch (Exception ex) {
         //TODO ex handling

@@ -6,30 +6,35 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" x:Class="IgooanaApp.Controls.DashboardVisitsByCountry"
     xmlns:System="clr-namespace:System;assembly=mscorlib"
     mc:Ignorable="d"
-    BorderBrush="Gray" BorderThickness="2"
-    d:DesignHeight="480" d:DesignWidth="480"
+    BorderBrush="Black" BorderThickness="5"
+    d:DesignHeight="560" d:DesignWidth="420"
   FontFamily="PhoneFontFamilyNormal"
   FontSize="{StaticResource PhoneFontSizeNormal}"
   Foreground="{StaticResource CommonForegroundBrush}"
+  MinHeight="560"
   >
- 
+
   <UserControl.Resources>
-    
-    <Thickness x:Key="VisitsListItemMargin" >10,3,0,3</Thickness>
+
+    <Thickness x:Key="VisitsListMargin" >0,22,0,0</Thickness>
+    <Thickness x:Key="VisitsListItemMargin" >10,1,0,0</Thickness>
+    <System:Double x:Key="BulletSize">32</System:Double>
 
     <Style TargetType="Image" x:Key="PeopleImage">
       <!--Margin left&right should be about a half of image width -->
-      <Setter Property="Margin" Value="28,0"/>
+      <Setter Property="Margin" Value="14,0"/>
       <Setter Property="Source" Value="/Assets/People.png"/>
       <Setter Property="Stretch" Value="None"/>
     </Style>
 
+    
+
     <Style TargetType="Border" x:Key="NumberBulletBorderStyle">
       <Setter Property="Background" Value="#FFC5C5C5"/>
       <!--CornerRadius should be a half of size -->
-      <Setter Property="CornerRadius" Value="26"/>
-      <Setter Property="Width" Value="{StaticResource AccentedFontSize}"/>
-      <Setter Property="Height" Value="{StaticResource AccentedFontSize}"/>
+      <Setter Property="CornerRadius" Value="16"/>
+      <Setter Property="Width" Value="{StaticResource BulletSize}"/>
+      <Setter Property="Height" Value="{StaticResource BulletSize}"/>
     </Style>
     <Style TargetType="TextBlock" x:Key="NumberBulletStyle">
       <Setter Property="FontSize" Value="{StaticResource NormalFontSize}"/>
@@ -44,58 +49,74 @@
       <Setter Property="FontSize" Value="{StaticResource PreAccentedFontSize}"/>
       <Setter Property="TextAlignment" Value="Right"/>
       <!--Margin left&right should be little less a half of fontsize -->
-      <Setter Property="Margin" Value="15,0"/>
-      <Setter Property="HorizontalAlignment" Value="Stretch"/>
-      <Setter Property="VerticalAlignment" Value="Stretch"/>
-    </Style>
-    
-    <Style TargetType="TextBlock" x:Key="CountryTextStyle">
-      <Setter Property="FontSize" Value="{StaticResource NormalFontSize}"/>
-      <Setter Property="TextAlignment" Value="Right"/>
-      <!--Padding is Count font size - country font size - some little %. It is needed to line up accented & normal text.-->
-      <Setter Property="Padding" Value="0,9,0,0"/>
+      <Setter Property="Margin" Value="15,0,8,0"/>
       <Setter Property="HorizontalAlignment" Value="Stretch"/>
       <Setter Property="VerticalAlignment" Value="Stretch"/>
     </Style>
 
-    <!-- OtherCountriesItemMargin should be Bullet width + Count margin -->
-    <Thickness x:Key="OtherCountriesItemMargin" >67,0,0,0</Thickness>
-    
+    <Style TargetType="TextBlock" x:Key="CountryTextStyle">
+      <Setter Property="FontSize" Value="{StaticResource NormalFontSize}"/>
+      <Setter Property="TextAlignment" Value="Right"/>
+      <!--Padding is Count font size - country font size - some little %. It is needed to line up accented & normal text.-->
+      <Setter Property="Padding" Value="0,7,0,0"/>
+      <Setter Property="HorizontalAlignment" Value="Stretch"/>
+      <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
+
+    <!-- OtherCountriesItemMargin should be Bullet width + VisitsListItemMargin + CountVisits margin left -->
+    <Thickness x:Key="OtherCountriesItemMargin" >59,8,0,0</Thickness>
+    <Style TargetType="TextBlock" x:Key="OtherCountriesTextStyle">
+      <Setter Property="FontSize" Value="{StaticResource PreAccentedSmallerFontSize}"/>
+      <Setter Property="TextAlignment" Value="Left"/>
+      <Setter Property="HorizontalAlignment" Value="Stretch"/>
+      <Setter Property="VerticalAlignment" Value="Stretch"/>
+      <Setter Property="Margin" Value="{StaticResource OtherCountriesItemMargin}"/>
+    </Style>
+
   </UserControl.Resources>
 
   <Grid x:Name="LayoutRoot" Background="White" ShowGridLines="False">
     <Grid.RowDefinitions>
       <RowDefinition Height="*"/>
-      <RowDefinition Height="9*"/>
+      <RowDefinition Height="14*"/>
     </Grid.RowDefinitions>
 
     <TextBlock Text="{Binding LocalizedResources.VisitsByCountryTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource ControlTitleText}"/>
-    
+
     <ProgressBar x:Name="ProgressBar" Grid.Row="1" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
     <Grid x:Name="VisitsLayout" Visibility="Collapsed" Background="White" ShowGridLines="False" Grid.Row="1">
       <Grid.RowDefinitions>
         <RowDefinition Height="*"/>
-        <RowDefinition Height="8*"/>
+        <RowDefinition Height="11*"/>
       </Grid.RowDefinitions>
-      
-      <StackPanel Grid.Row="0"  Orientation="Horizontal" VerticalAlignment="Bottom">
+
+      <StackPanel Grid.Row="0"  Orientation="Horizontal" VerticalAlignment="Top" Height="{StaticResource AccentedFontSize}">
         <StackPanel.Resources>
           <Style TargetType="TextBlock">
-            <Setter Property="Height" Value="auto"/>
             <Setter Property="VerticalAlignment" Value="Bottom"/>
           </Style>
         </StackPanel.Resources>
-        <TextBlock FontSize="{StaticResource PreAccentedFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
-        <Image Style="{StaticResource PeopleImage}"/>
-        <TextBlock FontSize="{StaticResource AccentedFontSize}" Text="{Binding VisitsTotal}"/>
+        <TextBlock FontSize="{StaticResource PreAccentedFontSize}" Height="{StaticResource PreAccentedFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
+        <Image Style="{StaticResource PeopleImage}" VerticalAlignment="Bottom"  />
+        <TextBlock FontSize="{StaticResource AccentedFontSize}"  Text="{Binding VisitsTotal}" Height="{StaticResource AccentedFontSize}" />
       </StackPanel>
 
-      <StackPanel HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" >
+      <StackPanel HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" Margin="{StaticResource VisitsListMargin}">
         <ListBox x:Name="visitorsByCountry" ItemsSource="{Binding VisitsByCountry}" Foreground="{StaticResource CommonForegroundBrush}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+          <!--<ListBoxItem>
+            <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="{StaticResource VisitsListItemMargin}">
+              <Border Style="{StaticResource NumberBulletBorderStyle}" >
+                <TextBlock Style="{StaticResource NumberBulletStyle}" Text="1" />
+              </Border>
+              <TextBlock Text="455" Width="48" Style="{StaticResource CountVisitsStyle}" />
+              <TextBlock Text="from Russia" Style="{StaticResource CountryTextStyle}"/>
+            </StackPanel>
+          </ListBoxItem>-->
+          
           <ListBox.ItemTemplate>
             <DataTemplate>
               <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="{StaticResource VisitsListItemMargin}">
-                <Border CornerRadius="26" Style="{StaticResource NumberBulletBorderStyle}" >
+                <Border Style="{StaticResource NumberBulletBorderStyle}" >
                   <TextBlock Style="{StaticResource NumberBulletStyle}" Text="{Binding Number}" />
                 </Border>
                 <TextBlock Text="{Binding Count}" Width="{Binding CountFieldWidth}" Style="{StaticResource CountVisitsStyle}" />
@@ -104,10 +125,10 @@
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock HorizontalAlignment="Stretch" Grid.Row="2" Text="{Binding CountriesOverall}" Margin="{StaticResource OtherCountriesItemMargin}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="{StaticResource PreAccentedSmallerFontSize}"/>
+        <TextBlock  Grid.Row="2" Text="{Binding CountriesOverall}"  Padding="{Binding PaddingCountriesOverall}"  Style="{StaticResource OtherCountriesTextStyle}"/>
       </StackPanel>
     </Grid>
-    
+
   </Grid>
-  
+
 </UserControl>
