@@ -61,7 +61,7 @@ namespace IgooanaApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 560949485274.apps.googleusercontent.com.
+        ///   Looks up a localized string similar to 13567522177.apps.googleusercontent.com.
         /// </summary>
         internal static string ApiClientId {
             get {
@@ -70,7 +70,7 @@ namespace IgooanaApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to lZ0NMTxb-_nX-uqjZ-VElxLw.
+        ///   Looks up a localized string similar to XqjN7F6-_1O8NkPYxt8uWmN2.
         /// </summary>
         internal static string ApiClientSecret {
             get {

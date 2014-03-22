@@ -2,7 +2,6 @@
 using IgooanaApp.Resources;
 using Microsoft.Phone.Controls;
 using System;
-using System.Diagnostics;
 using System.Windows;
 
 namespace IgooanaApp {
@@ -11,14 +10,13 @@ namespace IgooanaApp {
     public Auth() {
       InitializeComponent();
     }
-    private async void AuthLoaded(object sender, RoutedEventArgs e) {
+    private void AuthLoaded(object sender, RoutedEventArgs e) {
       if (PhoneStorage.AccessTokenExists) {
         try {
-          Api.Restore(PhoneStorage.AccessToken);
+          Api.Restore(PhoneStorage.Credentials);
           NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
         }
-        catch (UnauthorizedException) {
-          //token was revoked
+        catch (TokenRevokedException) {
           StartAuthentication();
         }
       }
@@ -29,9 +27,9 @@ namespace IgooanaApp {
 
     private async void OnNavigating(object sender, NavigatingEventArgs e) {
       try {
-        AuthResponse response = await api.Authenticate(e.Uri);
-        if (response.IsAuthenticated) {
-          PhoneStorage.AccessToken = response.AccessToken;
+        ICredentials credentials = await api.Authenticate(e.Uri);
+        if (credentials.Authenticated) {
+          PhoneStorage.Credentials = credentials;
           NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
         }
       }
