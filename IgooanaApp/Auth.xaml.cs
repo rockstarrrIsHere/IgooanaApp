@@ -12,13 +12,8 @@ namespace IgooanaApp {
     }
     private void AuthLoaded(object sender, RoutedEventArgs e) {
       if (PhoneStorage.AccessTokenExists) {
-        try {
-          Api.Restore(PhoneStorage.Credentials);
-          NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
-        }
-        catch (TokenRevokedException) {
-          StartAuthentication();
-        }
+        Api.Restore(PhoneStorage.Credentials);
+        NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
       }
       else {
         StartAuthentication();
