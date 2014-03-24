@@ -1,4 +1,5 @@
 ﻿using Igooana;
+using IgooanaApp.Resources;
 using System.IO.IsolatedStorage;
 
 namespace IgooanaApp {
@@ -19,7 +20,9 @@ namespace IgooanaApp {
     }
     public static string RefreshToken {
       get {
-        return IsolatedStorageSettings.ApplicationSettings[RefreshTokenKey].ToString();
+        string token;
+        IsolatedStorageSettings.ApplicationSettings.TryGetValue(RefreshTokenKey, out token);
+        return token;
       }
       set {
         IsolatedStorageSettings.ApplicationSettings[RefreshTokenKey] = value;
@@ -27,14 +30,19 @@ namespace IgooanaApp {
     }
 
     public static void ClearCredentials() {
-      IsolatedStorageSettings.ApplicationSettings.Remove(AccessToken);
+      IsolatedStorageSettings.ApplicationSettings.Remove(AccessTokenKey);
       IsolatedStorageSettings.ApplicationSettings.Remove(RefreshTokenKey);
     }
 
 
     public static ICredentials Credentials {
       get {
-        return new Credentials{ AccessToken = AccessToken, RefreshToken = RefreshToken };
+        return new Credentials {
+          AccessToken = AccessToken,
+          RefreshToken = RefreshToken,
+          ClientId = Env.ApiClientId,
+          ClientSecret = Env.ApiClientSecret
+        };
       }
       set {
         AccessToken = value.AccessToken;

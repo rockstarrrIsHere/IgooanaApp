@@ -13,6 +13,7 @@ namespace IgooanaApp {
     private void AuthLoaded(object sender, RoutedEventArgs e) {
       if (PhoneStorage.AccessTokenExists) {
         Api.Restore(PhoneStorage.Credentials);
+        Api.Current.AccessTokenRefreshed += (s, args) => PhoneStorage.AccessToken = args.AccessToken;
         NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
       }
       else {
@@ -28,7 +29,7 @@ namespace IgooanaApp {
           NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
         }
       }
-      catch (AccessRefusedException) {
+      catch (AccessDeniedException) {
         PhoneStorage.ClearCredentials();
         MessageBox.Show(Localization.OAuthUserConsentDenyMessage);
         Browser.Navigate(api.AuthenticateUri);
