@@ -16,9 +16,9 @@ namespace IgooanaApp.ViewModels {
     private int restCountriesCount;
     private IEnumerable<dynamic> visitsByCountry= new List<string>();
 
-    public string VisitsTotal {
+    public int VisitsTotal {
       get {
-        return totalVisitsCount.ToString("N0", System.Globalization.CultureInfo.CurrentUICulture);
+        return totalVisitsCount;
       }
     }
     public IEnumerable<dynamic> VisitsByCountry { get { return visitsByCountry; } }
@@ -37,9 +37,9 @@ namespace IgooanaApp.ViewModels {
         totalVisitsCount = total.Visitors;
         restCountriesCount = gaRows.Count() - SHOW_ROWS_COUNT;
 
-        int maxDigitsCount = (gaRows.First().Visitors).ToString("N0", System.Globalization.CultureInfo.CurrentUICulture).Length;
+        int maxDigitsCount = (gaRows.First().Visitors).ToString("N0").Length;
         visitsByCountry = listOfVisits.Select((item, index) => new { 
-          Count = (item.Visitors).ToString("N0", System.Globalization.CultureInfo.CurrentUICulture), 
+          Count = item.Visitors.ToString("N0"), 
           Text = String.Format(Localization.VisitsByCountryStringTemplate, item.Country),
           Number = index + 1, 
           CountFieldWidth = (maxDigitsCount) * overallViewSettings.LetterWidth });

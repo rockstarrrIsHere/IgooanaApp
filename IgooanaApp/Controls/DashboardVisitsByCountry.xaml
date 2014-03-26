@@ -98,28 +98,18 @@
         </StackPanel.Resources>
         <TextBlock FontSize="{StaticResource BiggerFontSize}" Height="{StaticResource BiggerFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
         <Image Style="{StaticResource PeopleImage}" VerticalAlignment="Bottom"  />
-        <TextBlock FontSize="{StaticResource BiggestFontSize}"  Text="{Binding VisitsTotal}" Height="{StaticResource BiggestFontSize}" />
+        <TextBlock FontSize="{StaticResource BiggestFontSize}"  Text="{Binding VisitsTotal, StringFormat='N0'}" Height="{StaticResource BiggestFontSize}" />
       </StackPanel>
 
       <StackPanel HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" Margin="{StaticResource VisitsListMargin}">
         <ListBox x:Name="visitorsByCountry" ItemsSource="{Binding VisitsByCountry}" Foreground="{StaticResource CommonForegroundBrush}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-          <!--<ListBoxItem>
-            <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="{StaticResource VisitsListItemMargin}">
-              <Border Style="{StaticResource NumberBulletBorderStyle}" >
-                <TextBlock Style="{StaticResource NumberBulletStyle}" Text="1" />
-              </Border>
-              <TextBlock Text="455" Width="48" Style="{StaticResource CountVisitsStyle}" />
-              <TextBlock Text="from Russia" Style="{StaticResource CountryTextStyle}"/>
-            </StackPanel>
-          </ListBoxItem>-->
-          
           <ListBox.ItemTemplate>
             <DataTemplate>
               <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="{StaticResource VisitsListItemMargin}">
                 <Border Style="{StaticResource NumberBulletBorderStyle}" >
                   <TextBlock Style="{StaticResource NumberBulletStyle}" Text="{Binding Number}" />
                 </Border>
-                <TextBlock Text="{Binding Count}" Width="{Binding CountFieldWidth}" Style="{StaticResource CountVisitsStyle}" />
+                <TextBlock Text="{Binding Count, StringFormat='N0'}" Width="{Binding CountFieldWidth}" Style="{StaticResource CountVisitsStyle}" />
                 <TextBlock Text="{Binding Text}" Style="{StaticResource CountryTextStyle}"/>
               </StackPanel>
             </DataTemplate>
