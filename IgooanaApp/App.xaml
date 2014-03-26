@@ -19,13 +19,13 @@
     <SolidColorBrush x:Key="HardAccentBackgroundBrush" Color="{StaticResource HardAccentBackgroundColor}" />
 
     <System:Double x:Key="NormalFontSize">22</System:Double>
-    <System:Double x:Key="PreAccentedFontSize">30</System:Double>
-    <System:Double x:Key="PreAccentedSmallerFontSize">25</System:Double>
-    <System:Double x:Key="AccentedFontSize">41</System:Double>
+    <System:Double x:Key="BiggerFontSize">30</System:Double>
+    <System:Double x:Key="BigFontSize">25</System:Double>
+    <System:Double x:Key="BiggestFontSize">41</System:Double>
     
     <Style TargetType="TextBlock" x:Key="ControlTitleText">
       <Setter Property="Foreground" Value="{StaticResource AccentFontBrush}"/>
-      <Setter Property="FontSize" Value="{StaticResource PreAccentedFontSize}"/>
+      <Setter Property="FontSize" Value="{StaticResource BiggerFontSize}"/>
       <Setter Property="HorizontalAlignment" Value="Stretch"/>
       <Setter Property="VerticalAlignment" Value="Stretch"/>
     </Style>

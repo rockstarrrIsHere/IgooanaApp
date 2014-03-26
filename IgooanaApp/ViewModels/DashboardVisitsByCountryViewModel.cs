@@ -16,9 +16,9 @@ namespace IgooanaApp.ViewModels {
     private int restCountriesCount;
     private IEnumerable<dynamic> visitsByCountry= new List<string>();
 
-    public int VisitsTotal {
+    public string VisitsTotal {
       get {
-        return totalVisitsCount;
+        return totalVisitsCount.ToString("N0", System.Globalization.CultureInfo.CurrentUICulture);
       }
     }
     public IEnumerable<dynamic> VisitsByCountry { get { return visitsByCountry; } }
@@ -37,12 +37,12 @@ namespace IgooanaApp.ViewModels {
         totalVisitsCount = total.Visitors;
         restCountriesCount = gaRows.Count() - SHOW_ROWS_COUNT;
 
-        int maxDigitsCount = gaRows.First().Visitors.ToString().Length;
+        int maxDigitsCount = (gaRows.First().Visitors).ToString("N0", System.Globalization.CultureInfo.CurrentUICulture).Length;
         visitsByCountry = listOfVisits.Select((item, index) => new { 
-          Count = item.Visitors, 
+          Count = (item.Visitors).ToString("N0", System.Globalization.CultureInfo.CurrentUICulture), 
           Text = String.Format(Localization.VisitsByCountryStringTemplate, item.Country),
           Number = index + 1, 
-          CountFieldWidth = maxDigitsCount * overallViewSettings.LetterWidth });
+          CountFieldWidth = (maxDigitsCount) * overallViewSettings.LetterWidth });
 
         //OtherCountriesItemMargin should be Bullet width + Count margin
         PaddingCountriesOverall = new Thickness(overallViewSettings.LetterWidth * (maxDigitsCount > overallViewSettings.Level ? maxDigitsCount - overallViewSettings.Level : 0) , 0, 0, 0);

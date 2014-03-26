@@ -18,7 +18,7 @@
    shell:SystemTray.ForegroundColor="{StaticResource AccentForegroundColor}">
 
   <local:Layout Background="Transparent">
-    <ScrollViewer Padding="30,0" Background="White">
+    <ScrollViewer Background="White">
       <Grid>
         <Grid.RowDefinitions>
           <RowDefinition Height="*"/>
@@ -26,12 +26,16 @@
           <RowDefinition Height="*"/>
           <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <localControls:DashboardVisitsByCountry/>
-        <localControls:DashboardAcquisition Grid.Row="1" MinHeight="500"/>
-        <localControls:DashboardPageViews Grid.Row="2" />
-        <localControls:DashboardGoals Grid.Row="3"/>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="40*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <localControls:DashboardVisitsByCountry Grid.Column="1"/>
+        <localControls:DashboardAcquisition Grid.Row="1" Grid.Column="1" MinHeight="500"/>
+        <localControls:DashboardPageViews Grid.Row="2" Grid.Column="1" />
+        <localControls:DashboardGoals Grid.Row="3" Grid.Column="1"/>
       </Grid>
-
     </ScrollViewer>
   </local:Layout>
 </phone:PhoneApplicationPage>
