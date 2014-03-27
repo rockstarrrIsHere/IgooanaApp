@@ -243,6 +243,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Icons\contextmenu.png" />
+    <Content Include="Assets\Icons\menu.png" />
     <Content Include="Assets\login-topbar-768.png" />
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
@@ -260,7 +262,6 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\People.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>

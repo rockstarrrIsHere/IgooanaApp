@@ -6,66 +6,67 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:igooana="clr-namespace:IgooanaApp">
+  
+  
 
-    <Style TargetType="igooana:Layout">
-      <Setter Property="Template">
-        <Setter.Value>
-          <ControlTemplate TargetType="igooana:Layout">
-            <Grid x:Name="Root">
-              <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="SettingsStateGroup">
-                  <VisualStateGroup.Transitions>
-                    <VisualTransition GeneratedDuration="0:0:0.2">
-                      <VisualTransition.GeneratedEasingFunction>
-                        <CubicEase EasingMode="EaseInOut"/>
-                      </VisualTransition.GeneratedEasingFunction>
-                    </VisualTransition>
-                  </VisualStateGroup.Transitions>
-                  <VisualState x:Name="MenuOpenState">
-                    <Storyboard>
-                      <DoubleAnimation Duration="0" To="380" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetX)" Storyboard.TargetName="Container" d:IsOptimized="True"/>
-                      <DoubleAnimation Duration="-480" To="-100" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetX)" Storyboard.TargetName="Menu" d:IsOptimized="True"/>
-                    </Storyboard>
-                  </VisualState>
-                  <VisualState x:Name="MenuClosedState"/>
-                </VisualStateGroup>
-              </VisualStateManager.VisualStateGroups>
-              <Grid x:Name="Menu" Background="Gray" Margin="100, 0, 0, 0">
-                <Grid.Projection>
-                  <PlaneProjection GlobalOffsetX="-480"/>
-                </Grid.Projection>
-                <StackPanel Margin="10">
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                  <TextBlock>Menu Item</TextBlock>
-                </StackPanel>
-              </Grid>
-              <Grid x:Name="Container">
-                <Grid.Projection>
-                  <PlaneProjection/>
-                </Grid.Projection>
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="Auto"/>
-                  <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Background="Orange">
-                  <Button x:Name="OpenMenuButton">Open Menu</Button>
-                </StackPanel>
-                <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" />
-              </Grid>
+  <Style TargetType="igooana:Layout">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="igooana:Layout">
+          <Grid x:Name="Root">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="SettingsStateGroup">
+                <VisualStateGroup.Transitions>
+                  <VisualTransition GeneratedDuration="0:0:0.2">
+                    <VisualTransition.GeneratedEasingFunction>
+                      <CubicEase EasingMode="EaseInOut"/>
+                    </VisualTransition.GeneratedEasingFunction>
+                  </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="MenuOpenState">
+                  <Storyboard>
+                    <DoubleAnimation Duration="0" To="380" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetX)" Storyboard.TargetName="Container" d:IsOptimized="True"/>
+                    <DoubleAnimation Duration="-480" To="-100" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetX)" Storyboard.TargetName="Menu" d:IsOptimized="True"/>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="MenuClosedState"/>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid x:Name="Menu" Background="Gray" Margin="100, 0, 0, 0">
+              <Grid.Projection>
+                <PlaneProjection GlobalOffsetX="-480"/>
+              </Grid.Projection>
             </Grid>
-          </ControlTemplate>
-        </Setter.Value>
-      </Setter>
-    </Style>
-  </ResourceDictionary>
+            <Grid x:Name="Container" Background="{StaticResource CommonBackgroundBrush}">
+              <Grid.Projection>
+                <PlaneProjection/>
+              </Grid.Projection>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+              </Grid.RowDefinitions>
+              <Grid MinHeight="50">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="20*"/>
+                  <ColumnDefinition Width="75*"/>
+                  <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Button>
+                  <Image Source="/Assets/Icons/menu.png"/>
+                </Button>
+                <StackPanel Grid.Column="1" Margin="0 15 0 0">
+                  <TextBlock Text="{TemplateBinding Title}" Foreground="{StaticResource CommonForegroundBrush}" 
+                             FontSize="{StaticResource MediumFontSize}"/>
+                </StackPanel>
+                <Button Grid.Column="2">
+                  <Image Source="/Assets/Icons/contextmenu.png"/>
+                </Button>
+              </Grid>
+              <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" />
+            </Grid>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>

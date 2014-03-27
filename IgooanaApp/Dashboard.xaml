@@ -17,7 +17,7 @@
    shell:SystemTray.BackgroundColor="{StaticResource AccentBackgroundColor}"
    shell:SystemTray.ForegroundColor="{StaticResource AccentForegroundColor}">
 
-  <local:Layout Background="Transparent">
+  <local:Layout Title="DASHBOARD">
     <ScrollViewer Padding="30,0" Background="White">
       <Grid>
         <Grid.RowDefinitions>

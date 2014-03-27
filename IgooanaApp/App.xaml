@@ -16,9 +16,11 @@
     <SolidColorBrush x:Key="AccentFontBrush" Color="{StaticResource AccentFontColor}"/>
     <SolidColorBrush x:Key="AccentForegrundBrush" Color="{StaticResource AccentForegroundColor}"/>
     <SolidColorBrush x:Key="CommonForegroundBrush" Color="Black" />
+    <SolidColorBrush x:Key="CommonBackgroundBrush" Color="White" />
     <SolidColorBrush x:Key="HardAccentBackgroundBrush" Color="{StaticResource HardAccentBackgroundColor}" />
 
     <System:Double x:Key="NormalFontSize">22</System:Double>
+    <System:Double x:Key="MediumFontSize">28</System:Double>
     <System:Double x:Key="PreAccentedFontSize">30</System:Double>
     <System:Double x:Key="PreAccentedSmallerFontSize">25</System:Double>
     <System:Double x:Key="AccentedFontSize">41</System:Double>

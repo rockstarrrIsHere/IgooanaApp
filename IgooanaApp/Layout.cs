@@ -8,6 +8,13 @@ namespace IgooanaApp {
       DefaultStyleKey = typeof(Layout);
     }
 
+    public static DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(Layout), null);
+    public string Title {
+      get { return GetValue(TitleProperty) as string; }
+      set { SetValue(TitleProperty, value); }
+    }
+
+
     public override void OnApplyTemplate() {
       base.OnApplyTemplate();
       Button openMenuButton = GetTemplateChild("OpenMenuButton") as Button;
