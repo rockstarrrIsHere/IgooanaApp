@@ -6,9 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:igooana="clr-namespace:IgooanaApp">
-  
-  
-
   <Style TargetType="igooana:Layout">
     <Setter Property="Template">
       <Setter.Value>
@@ -42,24 +39,32 @@
                 <PlaneProjection/>
               </Grid.Projection>
               <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="8*"/>
               </Grid.RowDefinitions>
-              <Grid MinHeight="50">
+              <Grid>
                 <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="20*"/>
-                  <ColumnDefinition Width="75*"/>
-                  <ColumnDefinition Width="10*"/>
+                  <ColumnDefinition Width="1*"/>
+                  <ColumnDefinition Width="7*"/>
+                  <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Button>
-                  <Image Source="/Assets/Icons/menu.png"/>
+                <Button x:Name="OpenMenuButton">
+                  <Button.Template>
+                    <ControlTemplate>
+                      <Image Source="/Assets/Icons/menu.png"/>
+                    </ControlTemplate>
+                  </Button.Template>
                 </Button>
-                <StackPanel Grid.Column="1" Margin="0 15 0 0">
-                  <TextBlock Text="{TemplateBinding Title}" Foreground="{StaticResource CommonForegroundBrush}" 
-                             FontSize="{StaticResource MediumFontSize}"/>
+                <StackPanel Grid.Column="1">
+                  <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Foreground="Black" FontSize="{StaticResource MediumFontSize}" FontWeight="Medium" Margin="8 20 8 -3"/>
+                  <TextBlock Grid.Column="1" Text="http://igooana.io : All website data" Foreground="Black" FontSize="18" FontWeight="Light" Margin="8 0"/>
                 </StackPanel>
                 <Button Grid.Column="2">
-                  <Image Source="/Assets/Icons/contextmenu.png"/>
+                  <Button.Template>
+                    <ControlTemplate>
+                      <Image Grid.Column="2" Source="/Assets/Icons/contextmenu.png"/>
+                    </ControlTemplate>
+                  </Button.Template>
                 </Button>
               </Grid>
               <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" />
