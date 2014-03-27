@@ -37,12 +37,12 @@ namespace IgooanaApp.ViewModels {
         totalVisitsCount = total.Visitors;
         restCountriesCount = gaRows.Count() - SHOW_ROWS_COUNT;
 
-        int maxDigitsCount = gaRows.First().Visitors.ToString().Length;
+        int maxDigitsCount = (gaRows.First().Visitors).ToString("N0").Length;
         visitsByCountry = listOfVisits.Select((item, index) => new { 
-          Count = item.Visitors, 
+          Count = item.Visitors.ToString("N0"), 
           Text = String.Format(Localization.VisitsByCountryStringTemplate, item.Country),
           Number = index + 1, 
-          CountFieldWidth = maxDigitsCount * overallViewSettings.LetterWidth });
+          CountFieldWidth = (maxDigitsCount) * overallViewSettings.LetterWidth });
 
         //OtherCountriesItemMargin should be Bullet width + Count margin
         PaddingCountriesOverall = new Thickness(overallViewSettings.LetterWidth * (maxDigitsCount > overallViewSettings.Level ? maxDigitsCount - overallViewSettings.Level : 0) , 0, 0, 0);
