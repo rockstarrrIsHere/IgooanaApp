@@ -132,6 +132,7 @@
     </Compile>
     <Compile Include="MultiResImage.cs" />
     <Compile Include="MultiResSplashScreenImage.cs" />
+    <Compile Include="NetworkConnectivity.cs" />
     <Compile Include="PhoneStorage.cs" />
     <Compile Include="Layout.cs" />
     <Compile Include="LocalizedStrings.cs" />
