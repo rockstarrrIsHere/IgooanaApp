@@ -10,13 +10,13 @@ namespace IgooanaApp {
     public Auth() {
       InitializeComponent();
     }
-    private void AuthLoaded(object sender, RoutedEventArgs e) {
+    private async void AuthLoaded(object sender, RoutedEventArgs e) {
+      await ((App)(App.Current)).VerifyConnectivityToGoogle();
       if (PhoneStorage.AccessTokenExists) {
         Api.Restore(PhoneStorage.Credentials);
         Api.Current.AccessTokenRefreshed += (s, args) => PhoneStorage.AccessToken = args.AccessToken;
         NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
-      }
-      else {
+      } else {
         StartAuthentication();
       }
     }
@@ -28,13 +28,11 @@ namespace IgooanaApp {
           PhoneStorage.Credentials = credentials;
           NavigationService.Navigate(new Uri("/Profiles.xaml", UriKind.Relative));
         }
-      }
-      catch (AccessDeniedException) {
+      } catch (AccessDeniedException) {
         PhoneStorage.ClearCredentials();
         MessageBox.Show(Localization.OAuthUserConsentDenyMessage);
         Browser.Navigate(api.AuthenticateUri);
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         MessageBox.Show(ex.Message);
       }
     }

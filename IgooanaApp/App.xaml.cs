@@ -52,19 +52,10 @@ namespace IgooanaApp {
       NetworkInformation.NetworkStatusChanged += async (sender) => await VerifyConnectivityToGoogle();
     }
 
-    private static async Task<bool> VerifyConnectivityToGoogle() {
-      if (!await NetworkConnectivity.IsOnline()) {
-        MessageBox.Show("No internet connection. Application will now exit");
-        App.Current.Terminate();
-        return false;
-      }
-      return true;
-    }
 
     // Code to execute when the application is launching (eg, from Start)
     // This code will not execute when the application is reactivated
-    private async void Application_Launching(object sender, LaunchingEventArgs e) {
-      await VerifyConnectivityToGoogle();
+    private void Application_Launching(object sender, LaunchingEventArgs e) {
     }
 
     // Code to execute when the application is activated (brought to foreground)
@@ -155,5 +146,18 @@ namespace IgooanaApp {
     }
 
     #endregion
+    /// <summary>
+    /// Asynchronously verifies internet connection to google.com and returns true if connection exists.
+    /// If there is no connection, method will display a message box and terminate current application.
+    /// </summary>
+    /// <returns></returns>
+    public async Task<bool> VerifyConnectivityToGoogle() {
+      if (!await NetworkConnectivity.IsOnline()) {
+        MessageBox.Show("No internet connection. Application will now exit");
+        App.Current.Terminate();
+        return false;
+      }
+      return true;
+    }
   }
 }
