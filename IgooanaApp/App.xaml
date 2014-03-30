@@ -4,10 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:System="clr-namespace:System;assembly=mscorlib">
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:app="clr-namespace:IgooanaApp">
 
   <Application.Resources>
-    <local:LocalizedStrings xmlns:local="clr-namespace:IgooanaApp" x:Key="LocalizedStrings"/>
+    <app:MultiResSplashScreenImage x:Key="SplashScreen"/>
+    <app:LocalizedStrings x:Key="LocalizedStrings"/>
     <Color x:Key="AccentBackgroundColor">#f78c40</Color>
     <Color x:Key="AccentFontColor">#f78c40</Color>
     <Color x:Key="AccentForegroundColor">#ffffff</Color>
