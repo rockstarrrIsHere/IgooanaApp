@@ -56,7 +56,7 @@
                   </Button.Template>
                 </Button>
                 <StackPanel Grid.Column="1">
-                  <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Foreground="Black" FontSize="{StaticResource MediumFontSize}" FontWeight="Medium" Margin="8 20 8 -3"/>
+                  <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Foreground="Black" FontSize="{StaticResource MediumFontSize}" FontWeight="Medium" Margin="8 20 8 -5"/>
                   <TextBlock Grid.Column="1" Text="http://igooana.io : All website data" Foreground="Black" FontSize="18" FontWeight="Light" Margin="8 0"/>
                 </StackPanel>
                 <Button Grid.Column="2">
