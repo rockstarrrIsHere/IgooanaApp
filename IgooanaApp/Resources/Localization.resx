@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="NoData" xml:space="preserve">
+    <value>We are sorry, but no data avaliable</value>
+    <comment>Shown when there is nothing to display</comment>
+  </data>
   <data name="OAuthUserConsentDenyMessage" xml:space="preserve">
     <value>You must allow accessing your information in order to use the application</value>
     <comment>Shown when a Google OAuth2 confirmation dialog is shown in a browser control and user denies the access.</comment>

@@ -29,6 +29,8 @@ namespace IgooanaApp.ViewModels {
         } 
     }
 
+    public bool HasData { get { return visitsByCountry.Count() > 0;} }
+
     public Thickness PaddingCountriesOverall { get; private set; }
 
     public DashboardVisitsByCountryViewModel(IEnumerable<dynamic> gaRows, dynamic total, dynamic overallViewSettings) {

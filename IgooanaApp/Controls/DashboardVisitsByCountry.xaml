@@ -11,7 +11,6 @@
   FontFamily="PhoneFontFamilyNormal"
   FontSize="{StaticResource PhoneFontSizeNormal}"
   Foreground="{StaticResource CommonForegroundBrush}"
-  MinHeight="560"
   >
 
   <UserControl.Resources>
@@ -19,6 +18,8 @@
     <Thickness x:Key="VisitsListMargin" >0,22,0,0</Thickness>
     <Thickness x:Key="VisitsListItemMargin" >10,1,0,0</Thickness>
     <System:Double x:Key="BulletSize">32</System:Double>
+    <System:Double x:Key="MinHeightForProgress">523</System:Double>
+    <System:Double x:Key="MinHeightForCountriesList">100</System:Double>
 
     <Style TargetType="Image" x:Key="PeopleImage">
       <!--Margin left&right should be about a half of image width -->
@@ -46,7 +47,7 @@
     <SolidColorBrush x:Key="NumberBulletBrush" Color="#FFC5C5C5"/>
 
     <Style TargetType="TextBlock" x:Key="CountVisitsStyle">
-      <Setter Property="FontSize" Value="{StaticResource BiggerFontSize}"/>
+      <Setter Property="FontSize" Value="{StaticResource LargerFontSize}"/>
       <Setter Property="TextAlignment" Value="Right"/>
       <!--Margin left&right should be little less a half of fontsize -->
       <Setter Property="Margin" Value="15,0,8,0"/>
@@ -66,11 +67,18 @@
     <!-- OtherCountriesItemMargin should be Bullet width + VisitsListItemMargin + CountVisits margin left -->
     <Thickness x:Key="OtherCountriesItemMargin" >59,8,0,0</Thickness>
     <Style TargetType="TextBlock" x:Key="OtherCountriesTextStyle">
-      <Setter Property="FontSize" Value="{StaticResource BigFontSize}"/>
+      <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
       <Setter Property="TextAlignment" Value="Left"/>
       <Setter Property="HorizontalAlignment" Value="Stretch"/>
       <Setter Property="VerticalAlignment" Value="Stretch"/>
       <Setter Property="Margin" Value="{StaticResource OtherCountriesItemMargin}"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="NoDataTextStyle">
+      <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
+      <Setter Property="TextAlignment" Value="Center"/>
+      <Setter Property="HorizontalAlignment" Value="Stretch"/>
+      <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
   </UserControl.Resources>
@@ -83,26 +91,26 @@
 
     <TextBlock Text="{Binding LocalizedResources.VisitsByCountryTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource ControlTitleText}"/>
 
-    <ProgressBar x:Name="ProgressBar" Grid.Row="1" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
+    <ProgressBar x:Name="ProgressBar" Grid.Row="1" MinHeight="{StaticResource MinHeightForProgress}" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
     <Grid x:Name="VisitsLayout" Visibility="Collapsed" Background="White" ShowGridLines="False" Grid.Row="1">
       <Grid.RowDefinitions>
         <RowDefinition Height="*"/>
-        <RowDefinition Height="11*"/>
+        <RowDefinition Height="11*" MinHeight="{StaticResource MinHeightForCountriesList}"/>
       </Grid.RowDefinitions>
 
-      <StackPanel Grid.Row="0"  Orientation="Horizontal" VerticalAlignment="Top" Height="{StaticResource BiggestFontSize}">
+      <StackPanel Grid.Row="0"  Orientation="Horizontal" VerticalAlignment="Top" Height="{StaticResource LargestFontSize}">
         <StackPanel.Resources>
           <Style TargetType="TextBlock">
             <Setter Property="VerticalAlignment" Value="Bottom"/>
           </Style>
         </StackPanel.Resources>
-        <TextBlock FontSize="{StaticResource BiggerFontSize}" Height="{StaticResource BiggerFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
+        <TextBlock FontSize="{StaticResource LargerFontSize}" Height="{StaticResource LargerFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
         <Image Style="{StaticResource PeopleImage}" VerticalAlignment="Bottom"  />
-        <TextBlock FontSize="{StaticResource BiggestFontSize}"  Text="{Binding VisitsTotal, StringFormat='N0'}" Height="{StaticResource BiggestFontSize}" />
+        <TextBlock FontSize="{StaticResource LargestFontSize}"  Text="{Binding VisitsTotal, StringFormat='N0'}" Height="{StaticResource LargestFontSize}" />
       </StackPanel>
 
-      <StackPanel HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" Margin="{StaticResource VisitsListMargin}">
-        <ListBox x:Name="visitorsByCountry" ItemsSource="{Binding VisitsByCountry}" Foreground="{StaticResource CommonForegroundBrush}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+      <StackPanel x:Name="CountriesListPanel" Visibility="Collapsed" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" Margin="{StaticResource VisitsListMargin}">
+        <ListBox ItemsSource="{Binding VisitsByCountry}" Foreground="{StaticResource CommonForegroundBrush}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
           <ListBox.ItemTemplate>
             <DataTemplate>
               <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="{StaticResource VisitsListItemMargin}">
@@ -115,8 +123,10 @@
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock  Grid.Row="2" Text="{Binding CountriesOverall}"  Padding="{Binding PaddingCountriesOverall}"  Style="{StaticResource OtherCountriesTextStyle}"/>
+        <TextBlock  Text="{Binding CountriesOverall}"  Padding="{Binding PaddingCountriesOverall}"  Style="{StaticResource OtherCountriesTextStyle}"/>
       </StackPanel>
+
+      <TextBlock x:Name="NoDataText"  Grid.Row="1" Text="{Binding LocalizedResources.NoData, Source={StaticResource LocalizedStrings}}"  Style="{StaticResource NoDataTextStyle}"/>
     </Grid>
 
   </Grid>

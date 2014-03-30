@@ -61,6 +61,15 @@ namespace IgooanaApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We are sorry, but no data avaliable.
+        /// </summary>
+        public static string NoData {
+            get {
+                return ResourceManager.GetString("NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must allow accessing your information in order to use the application.
         /// </summary>
         public static string OAuthUserConsentDenyMessage {

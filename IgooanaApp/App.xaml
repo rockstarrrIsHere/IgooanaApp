@@ -23,13 +23,13 @@
 
     <System:Double x:Key="NormalFontSize">22</System:Double>
     <System:Double x:Key="MediumFontSize">24</System:Double>
-    <System:Double x:Key="BiggerFontSize">30</System:Double>
-    <System:Double x:Key="BigFontSize">25</System:Double>
-    <System:Double x:Key="BiggestFontSize">41</System:Double>
+    <System:Double x:Key="LargerFontSize">30</System:Double>
+    <System:Double x:Key="LargeFontSize">25</System:Double>
+    <System:Double x:Key="LargestFontSize">41</System:Double>
     
     <Style TargetType="TextBlock" x:Key="ControlTitleText">
       <Setter Property="Foreground" Value="{StaticResource AccentFontBrush}"/>
-      <Setter Property="FontSize" Value="{StaticResource BiggerFontSize}"/>
+      <Setter Property="FontSize" Value="{StaticResource LargerFontSize}"/>
       <Setter Property="HorizontalAlignment" Value="Stretch"/>
       <Setter Property="VerticalAlignment" Value="Stretch"/>
     </Style>

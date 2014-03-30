@@ -20,9 +20,17 @@ namespace IgooanaApp.Controls {
       InitializeComponent();
       Loaded += DashboardVisitsByCountry_Loaded;
     }
-    private void ToggleLoading() {
+    private void ToggleLoading(bool hasData) {
       ProgressBar.Visibility = ViewHelper.ToggleVisibility(ProgressBar.Visibility);
       VisitsLayout.Visibility = ViewHelper.ToggleVisibility(VisitsLayout.Visibility);
+      if (hasData) {
+        NoDataText.Visibility = ViewHelper.ToggleVisibility(NoDataText.Visibility);
+        CountriesListPanel.Visibility = ViewHelper.ToggleVisibility(CountriesListPanel.Visibility);
+      }
+    }
+
+    private void ToggleIfNoData() {
+     
     }
 
     async void DashboardVisitsByCountry_Loaded(object sender, RoutedEventArgs e) {
@@ -36,7 +44,8 @@ namespace IgooanaApp.Controls {
       var viewModel = new DashboardVisitsByCountryViewModel(result.Values, result.Totals, new { LetterWidth = visitsCountLetterWidth, Level = startCountOverallTextLevel });
      
       LayoutRoot.DataContext = viewModel;
-      ToggleLoading();
+      
+      ToggleLoading(viewModel.HasData);
     }
   }
 }
