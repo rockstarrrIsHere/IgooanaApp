@@ -18,17 +18,8 @@
     <Thickness x:Key="VisitsListMargin" >0,22,0,0</Thickness>
     <Thickness x:Key="VisitsListItemMargin" >10,1,0,0</Thickness>
     <System:Double x:Key="BulletSize">32</System:Double>
-    <System:Double x:Key="MinHeightForProgress">523</System:Double>
+    <System:Double x:Key="MinHeightForProgress">200</System:Double>
     <System:Double x:Key="MinHeightForCountriesList">100</System:Double>
-
-    <Style TargetType="Image" x:Key="PeopleImage">
-      <!--Margin left&right should be about a half of image width -->
-      <Setter Property="Margin" Value="14,0"/>
-      <Setter Property="Source" Value="/Assets/People.png"/>
-      <Setter Property="Stretch" Value="None"/>
-    </Style>
-
-    
 
     <Style TargetType="Border" x:Key="NumberBulletBorderStyle">
       <Setter Property="Background" Value="#FFC5C5C5"/>
@@ -92,7 +83,7 @@
     <TextBlock Text="{Binding LocalizedResources.VisitsByCountryTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource ControlTitleText}"/>
 
     <ProgressBar x:Name="ProgressBar" Grid.Row="1" MinHeight="{StaticResource MinHeightForProgress}" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
-    <Grid x:Name="VisitsLayout" Visibility="Collapsed" Background="White" ShowGridLines="False" Grid.Row="1">
+    <Grid x:Name="VisitsLayout" Background="White" Visibility="Collapsed" ShowGridLines="False" Grid.Row="1">
       <Grid.RowDefinitions>
         <RowDefinition Height="*"/>
         <RowDefinition Height="11*" MinHeight="{StaticResource MinHeightForCountriesList}"/>
@@ -104,9 +95,9 @@
             <Setter Property="VerticalAlignment" Value="Bottom"/>
           </Style>
         </StackPanel.Resources>
+        <Image Source="/Assets/Icons/Audience.png" Margin="0 0 10 -9"/>
+        <TextBlock FontSize="{StaticResource LargestFontSize}"  Text="{Binding VisitsTotal, StringFormat='N0'}" Height="{StaticResource LargestFontSize}" Margin="0 0 8 0" />
         <TextBlock FontSize="{StaticResource LargerFontSize}" Height="{StaticResource LargerFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
-        <Image Style="{StaticResource PeopleImage}" VerticalAlignment="Bottom"  />
-        <TextBlock FontSize="{StaticResource LargestFontSize}"  Text="{Binding VisitsTotal, StringFormat='N0'}" Height="{StaticResource LargestFontSize}" />
       </StackPanel>
 
       <StackPanel x:Name="CountriesListPanel" Visibility="Collapsed" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" Margin="{StaticResource VisitsListMargin}">

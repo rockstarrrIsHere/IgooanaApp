@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NoData" xml:space="preserve">
-    <value>We are sorry, but no data avaliable</value>
+    <value>No Data Available</value>
     <comment>Shown when there is nothing to display</comment>
   </data>
   <data name="OAuthUserConsentDenyMessage" xml:space="preserve">
@@ -140,6 +140,6 @@
     <value>Audience</value>
   </data>
   <data name="VisitsByCountryTotal" xml:space="preserve">
-    <value>Visits</value>
+    <value>visits</value>
   </data>
 </root>

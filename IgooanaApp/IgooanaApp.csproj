@@ -247,6 +247,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Icons\audience.png" />
     <Content Include="Assets\Icons\contextmenu.png" />
     <Content Include="Assets\Icons\menu.png" />
     <Content Include="Assets\login-topbar-768.png" />
