@@ -130,6 +130,7 @@
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ControlLayout.cs" />
     <Compile Include="MultiResImage.cs" />
     <Compile Include="MultiResSplashScreenImage.cs" />
     <Compile Include="NetworkConnectivity.cs" />
@@ -206,6 +207,10 @@
     <Page Include="Themes\Indicator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ControlLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Layout.xaml">
       <SubType>Designer</SubType>

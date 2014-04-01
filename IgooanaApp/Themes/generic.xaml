@@ -4,6 +4,7 @@
     >
   <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="/IgooanaApp;component/Themes/Layout.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp;component/Themes/ControlLayout.xaml"/>
     <ResourceDictionary Source="/IgooanaApp;component/Themes/Balloon.xaml"/>
     <ResourceDictionary Source="/IgooanaApp;component/Themes/Legend.xaml"/>
     <ResourceDictionary Source="/IgooanaApp;component/Themes/Slice.xaml"/>

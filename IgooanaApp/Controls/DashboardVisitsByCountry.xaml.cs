@@ -43,7 +43,7 @@ namespace IgooanaApp.Controls {
       var result = await Api.Current.Execute(query);
       var viewModel = new DashboardVisitsByCountryViewModel(result.Values, result.Totals, new { LetterWidth = visitsCountLetterWidth, Level = startCountOverallTextLevel });
      
-      LayoutRoot.DataContext = viewModel;
+      DataContext = viewModel;
       
       ToggleLoading(viewModel.HasData);
     }

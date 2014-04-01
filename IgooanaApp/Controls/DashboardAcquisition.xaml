@@ -3,20 +3,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:charts="clr-namespace:IgooanaApp.Charts"
+    xmlns:igooanaCharts="clr-namespace:IgooanaApp.Charts"
+    xmlns:igooanaControls="clr-namespace:IgooanaApp.Controls"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
-  <Grid x:Name="LayoutRoot" Background="White">
-    <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
-    <charts:PieChart x:Name="AcquisitionChart" 
+  <igooanaControls:ControlLayout Title="Acquisition">
+    <Grid Background="White">
+      <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
+      <igooanaCharts:PieChart x:Name="AcquisitionChart" 
                      Visibility="Collapsed"
                      ValueMemberPath="Value"
                      TitleMemberPath="Title"
                      Text="{Binding CenterText}"
                      Description="{Binding CenterTextDescription}"/>
-  </Grid>
+    </Grid>
+
+  </igooanaControls:ControlLayout>
+
 </UserControl>
