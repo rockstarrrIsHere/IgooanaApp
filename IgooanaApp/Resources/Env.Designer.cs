@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IgooanaApp.Resources {
+namespace IgooanaApp.WP8.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace IgooanaApp.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IgooanaApp.Resources.Env", typeof(Env).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IgooanaApp.WP8.Resources.Env", typeof(Env).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

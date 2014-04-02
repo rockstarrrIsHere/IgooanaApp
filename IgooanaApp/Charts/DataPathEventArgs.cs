@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Represents arguments for event raised when Path related properties change.
   /// </summary>

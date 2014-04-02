@@ -1,8 +1,8 @@
 ﻿using Igooana;
-using IgooanaApp.Resources;
+using IgooanaApp.WP8.Resources;
 using System.IO.IsolatedStorage;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public static class PhoneStorage {
     const string AccessTokenKey = "AccessToken";
     const string RefreshTokenKey = "RefreshToken";

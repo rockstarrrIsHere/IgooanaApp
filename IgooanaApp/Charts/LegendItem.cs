@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   // Note: This class is used to facilitate a workaround with Silverlight issue of displaying objects 
   // inherited from DependencyObject in ItemsControl
 

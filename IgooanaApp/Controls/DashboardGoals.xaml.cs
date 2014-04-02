@@ -1,11 +1,12 @@
 ﻿using Igooana;
+using IgooanaApp.Core;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace IgooanaApp.Controls {
+namespace IgooanaApp.WP8.Controls {
   public partial class DashboardGoals : UserControl {
     private Random r = new Random();
     public DashboardGoals() {

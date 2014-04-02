@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public class MultiResSplashScreenImage {
     public Uri Uri {
       get {

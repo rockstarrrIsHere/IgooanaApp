@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Windows.Networking;
 using Windows.Networking.Sockets;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public static class NetworkConnectivity {
     const int TimeoutMilliseconds = 10000;
     public static async Task<bool> IsOnline() {

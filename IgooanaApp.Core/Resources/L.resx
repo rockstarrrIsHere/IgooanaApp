@@ -117,29 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Audience" xml:space="preserve">
+    <value>Audience</value>
+  </data>
   <data name="NoData" xml:space="preserve">
-    <value>No Data Available</value>
-    <comment>Shown when there is nothing to display</comment>
+    <value>No data available</value>
   </data>
   <data name="OAuthUserConsentDenyMessage" xml:space="preserve">
     <value>You must allow accessing your information in order to use the application</value>
-    <comment>Shown when a Google OAuth2 confirmation dialog is shown in a browser control and user denies the access.</comment>
+  </data>
+  <data name="Visits" xml:space="preserve">
+    <value>Visits</value>
   </data>
   <data name="VisitsByCountryCountriesRestTemplatePlural" xml:space="preserve">
     <value>+{0:N0} other countries</value>
-    <comment>Shown when more than one country haven't been displayed</comment>
   </data>
   <data name="VisitsByCountryCountriesRestTemplateSingle" xml:space="preserve">
     <value>+{0:N0} other country</value>
-    <comment>Shown when one county hasn't been displayed </comment>
   </data>
   <data name="VisitsByCountryStringTemplate" xml:space="preserve">
     <value>from {0}</value>
-  </data>
-  <data name="VisitsByCountryTitle" xml:space="preserve">
-    <value>Audience</value>
-  </data>
-  <data name="VisitsByCountryTotal" xml:space="preserve">
-    <value>visits</value>
   </data>
 </root>

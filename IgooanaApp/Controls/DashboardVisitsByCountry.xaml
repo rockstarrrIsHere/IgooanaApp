@@ -3,16 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" x:Class="IgooanaApp.Controls.DashboardVisitsByCountry"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" x:Class="IgooanaApp.WP8.Controls.DashboardVisitsByCountry"
     xmlns:System="clr-namespace:System;assembly=mscorlib"
-    xmlns:igooanaControls="clr-namespace:IgooanaApp.Controls"
+    xmlns:igooanaControls="clr-namespace:IgooanaApp.WP8.Controls"
     mc:Ignorable="d"
     BorderBrush="Black" BorderThickness="5"
     d:DesignHeight="560" d:DesignWidth="420"
   FontFamily="PhoneFontFamilyNormal"
   FontSize="{StaticResource PhoneFontSizeNormal}"
-  Foreground="{StaticResource CommonForegroundBrush}"
-  >
+  Foreground="{StaticResource CommonForegroundBrush}" >
 
   <UserControl.Resources>
 
@@ -74,7 +73,7 @@
     </Style>
 
   </UserControl.Resources>
-  <igooanaControls:ControlLayout Title="{Binding LocalizedResources.VisitsByCountryTitle, Source={StaticResource LocalizedStrings}}">
+  <igooanaControls:ControlLayout Title="{Binding LocalizedResources.Audience, Source={StaticResource LocalizedStrings}}">
     <Grid>
       <ProgressBar x:Name="ProgressBar" MinHeight="{StaticResource MinHeightForProgress}" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
       <Grid x:Name="VisitsLayout" Background="White" Visibility="Collapsed">
@@ -89,9 +88,9 @@
               <Setter Property="VerticalAlignment" Value="Bottom"/>
             </Style>
           </StackPanel.Resources>
-          <Image Source="/Assets/Icons/Audience.png" Margin="0 0 10 -9"/>
+          <TextBlock FontSize="{StaticResource LargerFontSize}" FontWeight="Light" Height="{StaticResource LargerFontSize}" Text="{Binding LocalizedResources.Visits, Source={StaticResource LocalizedStrings}}"/>
+          <Image Source="/Assets/Icons/Audience.png" Margin="0 -5 5 -10"/>
           <TextBlock FontSize="{StaticResource LargestFontSize}"  Text="{Binding VisitsTotal, StringFormat='N0'}" Height="{StaticResource LargestFontSize}" Margin="0 0 8 0" />
-          <TextBlock FontSize="{StaticResource LargerFontSize}" Height="{StaticResource LargerFontSize}" Text="{Binding LocalizedResources.VisitsByCountryTotal, Source={StaticResource LocalizedStrings}}"/>
         </StackPanel>
 
         <StackPanel x:Name="CountriesListPanel" Visibility="Collapsed" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" Margin="{StaticResource VisitsListMargin}">

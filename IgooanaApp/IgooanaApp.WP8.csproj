@@ -9,8 +9,8 @@
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IgooanaApp</RootNamespace>
-    <AssemblyName>IgooanaApp</AssemblyName>
+    <RootNamespace>IgooanaApp.WP8</RootNamespace>
+    <AssemblyName>IgooanaApp.WP8</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -21,7 +21,7 @@
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>IgooanaApp_$(Configuration)_$(Platform).xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>IgooanaApp.App</SilverlightAppEntry>
+    <SilverlightAppEntry>IgooanaApp.WP8.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
@@ -136,7 +136,6 @@
     <Compile Include="NetworkConnectivity.cs" />
     <Compile Include="PhoneStorage.cs" />
     <Compile Include="Layout.cs" />
-    <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Profiles.xaml.cs">
       <DependentUpon>Profiles.xaml</DependentUpon>
     </Compile>
@@ -147,17 +146,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Env.resx</DependentUpon>
     </Compile>
-    <Compile Include="AppState.cs" />
-    <Compile Include="Resources\Localization.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Localization.resx</DependentUpon>
-    </Compile>
     <Compile Include="ViewHelper.cs" />
-    <Compile Include="ViewModels\DashboardAcquisitionViewModel.cs" />
-    <Compile Include="ViewModels\DashboardAcquisitionViewModelItem.cs" />
-    <Compile Include="ViewModels\DashboardPageViewsViewModel.cs" />
-    <Compile Include="ViewModels\DashboardVisitsByCountryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -252,6 +241,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Icons\acquisition.png" />
     <Content Include="Assets\Icons\audience.png" />
     <Content Include="Assets\Icons\contextmenu.png" />
     <Content Include="Assets\Icons\menu.png" />
@@ -281,16 +271,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Env.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Localization.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Igooana, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Igooana\Igooana\bin\Debug\Igooana.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IgooanaApp.Core\IgooanaApp.Core.csproj">
+      <Project>{92835E7F-D9A2-4F1B-B084-1B60D033B551}</Project>
+      <Name>IgooanaApp.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

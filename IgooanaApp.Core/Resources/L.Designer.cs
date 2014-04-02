@@ -8,8 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IgooanaApp.Resources {
+namespace IgooanaApp.Core.Resources {
     using System;
+    using System.Reflection;
     
     
     /// <summary>
@@ -22,14 +23,14 @@ namespace IgooanaApp.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Localization {
+    public class L {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Localization() {
+        internal L() {
         }
         
         /// <summary>
@@ -39,7 +40,7 @@ namespace IgooanaApp.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IgooanaApp.Resources.Localization", typeof(Localization).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IgooanaApp.Core.Resources.L", typeof(L).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +62,16 @@ namespace IgooanaApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Data Available.
+        ///   Looks up a localized string similar to Audience.
+        /// </summary>
+        public static string Audience {
+            get {
+                return ResourceManager.GetString("Audience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data available.
         /// </summary>
         public static string NoData {
             get {
@@ -75,6 +85,15 @@ namespace IgooanaApp.Resources {
         public static string OAuthUserConsentDenyMessage {
             get {
                 return ResourceManager.GetString("OAuthUserConsentDenyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visits.
+        /// </summary>
+        public static string Visits {
+            get {
+                return ResourceManager.GetString("Visits", resourceCulture);
             }
         }
         
@@ -102,24 +121,6 @@ namespace IgooanaApp.Resources {
         public static string VisitsByCountryStringTemplate {
             get {
                 return ResourceManager.GetString("VisitsByCountryStringTemplate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Audience.
-        /// </summary>
-        public static string VisitsByCountryTitle {
-            get {
-                return ResourceManager.GetString("VisitsByCountryTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to visits.
-        /// </summary>
-        public static string VisitsByCountryTotal {
-            get {
-                return ResourceManager.GetString("VisitsByCountryTotal", resourceCulture);
             }
         }
     }

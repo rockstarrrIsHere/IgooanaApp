@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace IgooanaApp.Controls {
+namespace IgooanaApp.WP8.Controls {
   public class ControlLayout : ContentControl {
     public ControlLayout() {
       DefaultStyleKey = typeof(ControlLayout);

@@ -1,7 +1,7 @@
 ﻿using System;
 using Igooana.Extensions;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public enum ImageFormat { JPG, PNG }
   public static class MultiResImage {
     /// <summary>
