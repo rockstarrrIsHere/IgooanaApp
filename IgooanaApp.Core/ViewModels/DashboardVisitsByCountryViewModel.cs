@@ -11,6 +11,7 @@ namespace IgooanaApp.ViewModels {
     /// </summary>
     const int ShowRowsCount = 10;
     const int CharPxLength = 16;
+    const int StartCountRsstTextLevel = 2;
     private int totalVisitsCount;
     private int restCountriesCount;
     private IEnumerable<dynamic> visitsByCountry = new List<string>();
@@ -21,7 +22,7 @@ namespace IgooanaApp.ViewModels {
       }
     }
     public IEnumerable<dynamic> VisitsByCountry { get { return visitsByCountry; } }
-    public string CountriesOverall {
+    public string CountriesRest {
       get {
         return restCountriesCount > 1 ? String.Format(LocalizedStrings.PluralizedTemplate("VisitsByCountryCountriesRestTemplate", restCountriesCount), restCountriesCount)
           : String.Empty;
@@ -30,7 +31,7 @@ namespace IgooanaApp.ViewModels {
 
     public bool HasData { get { return visitsByCountry.Any(); } }
 
-    //public Thickness PaddingCountriesOverall { get; private set; }
+    public int PaddingCountriesOverall { get; private set; }
 
     public DashboardVisitsByCountryViewModel(IEnumerable<dynamic> gaRows, dynamic total) {
       try {
@@ -47,7 +48,7 @@ namespace IgooanaApp.ViewModels {
         });
 
         //OtherCountriesItemMargin should be Bullet width + Count margin
-        //PaddingCountriesOverall = new Thickness(overallViewSettings.LetterWidth * (maxDigitsCount > overallViewSettings.Level ? maxDigitsCount - overallViewSettings.Level : 0), 0, 0, 0);
+        PaddingCountriesOverall = CharPxLength * (maxDigitsCount > StartCountRsstTextLevel ? maxDigitsCount - StartCountRsstTextLevel : 0);
       } catch (Exception ex) {
         //TODO ex handling
         throw ex;

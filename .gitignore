@@ -3,3 +3,5 @@ obj
 *.suo
 packages
 IgooanaApp/IgooanaApp.csproj.user
+*.user
+IgooanaApp/IgooanaApp.WP8.csproj.user

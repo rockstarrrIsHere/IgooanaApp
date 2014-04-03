@@ -15,7 +15,7 @@
 
   <UserControl.Resources>
 
-    <Thickness x:Key="VisitsListMargin" >0,22,0,0</Thickness>
+    <Thickness x:Key="VisitsListMargin">0,22,0,0</Thickness>
     <Thickness x:Key="VisitsListItemMargin" >10,1,0,0</Thickness>
     <System:Double x:Key="BulletSize">32</System:Double>
     <System:Double x:Key="MinHeightForProgress">200</System:Double>
@@ -107,7 +107,7 @@
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
-          <!--<TextBlock  Text="{Binding CountriesOverall}"  Padding="{Binding PaddingCountriesOverall}"  Style="{StaticResource OtherCountriesTextStyle}"/>-->
+          <TextBlock x:Name="CountriesRestText" Text="{Binding CountriesRest}"  Style="{StaticResource OtherCountriesTextStyle}"/>
         </StackPanel>
 
         <TextBlock x:Name="NoDataText"  Grid.Row="1" Text="{Binding LocalizedResources.NoData, Source={StaticResource LocalizedStrings}}"  Style="{StaticResource NoDataTextStyle}"/>
