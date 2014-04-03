@@ -31,7 +31,7 @@
           <ColumnDefinition Width="40*"/>
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <!--<localControls:DashboardVisitsByCountry Grid.Column="1"/>-->
+        <localControls:DashboardVisitsByCountry Grid.Column="1"/>
         <localControls:DashboardAcquisition Grid.Row="1" Grid.Column="1" MinHeight="500"/>
         <!--<localControls:DashboardPageViews Grid.Row="2" Grid.Column="1" />
         <localControls:DashboardGoals Grid.Row="3" Grid.Column="1"/>-->

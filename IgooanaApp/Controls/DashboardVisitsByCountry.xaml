@@ -107,7 +107,7 @@
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
-          <TextBlock  Text="{Binding CountriesOverall}"  Padding="{Binding PaddingCountriesOverall}"  Style="{StaticResource OtherCountriesTextStyle}"/>
+          <!--<TextBlock  Text="{Binding CountriesOverall}"  Padding="{Binding PaddingCountriesOverall}"  Style="{StaticResource OtherCountriesTextStyle}"/>-->
         </StackPanel>
 
         <TextBlock x:Name="NoDataText"  Grid.Row="1" Text="{Binding LocalizedResources.NoData, Source={StaticResource LocalizedStrings}}"  Style="{StaticResource NoDataTextStyle}"/>
