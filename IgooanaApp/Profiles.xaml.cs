@@ -1,11 +1,12 @@
 ﻿using Igooana;
+using IgooanaApp.Core;
 using Microsoft.Phone.Controls;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public partial class Profiles : PhoneApplicationPage {
     public Profiles() {
       InitializeComponent();
@@ -15,16 +16,13 @@ namespace IgooanaApp {
       base.OnNavigatedTo(e);
       try {
         profilesList.ItemsSource = await Api.Current.Management.GetProfilesAsync();
-      }
-      catch (TokenRevokedException) {
+      } catch (TokenRevokedException) {
         MessageBox.Show("You revoked the token and need to relogin");
         PhoneStorage.ClearCredentials();
         NavigationService.Navigate(new Uri("/Auth.xaml", UriKind.Relative));
-      }
-      catch (ConnectionException ex) {
+      } catch (ConnectionException ex) {
         MessageBox.Show(ex.Message);
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         MessageBox.Show(ex.Message);
       }
     }

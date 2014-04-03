@@ -3,17 +3,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     >
   <ResourceDictionary.MergedDictionaries>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/Layout.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/Balloon.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/Legend.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/Slice.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/PieChart.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/CategoryAxis.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/ColumnGraph.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/Indicator.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/ValueAxis.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/ValueGrid.xaml"/>
-    <ResourceDictionary Source="/IgooanaApp;component/Themes/SerialChart.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/Layout.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/ControlLayout.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/Balloon.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/Legend.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/Slice.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/PieChart.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/CategoryAxis.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/ColumnGraph.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/Indicator.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/ValueAxis.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/ValueGrid.xaml"/>
+    <ResourceDictionary Source="/IgooanaApp.WP8;component/Themes/SerialChart.xaml"/>
     
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

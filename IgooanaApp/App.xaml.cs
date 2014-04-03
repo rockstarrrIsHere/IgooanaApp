@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Navigation;
 using Windows.Networking.Connectivity;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public partial class App : Application {
 
     public const string AccentBackgroundColor = "AccentBackgroundColor";

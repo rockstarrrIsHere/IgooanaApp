@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace IgooanaApp.ViewModels {
+namespace IgooanaApp.Core.ViewModels {
   public interface IDashboardAcquisitionItem {
     int Value { get; }
     string Title { get; }
   }
-  public class DashboardAcquisitionViewModelItem : IDashboardAcquisitionItem{
+  public class DashboardAcquisitionViewModelItem : IDashboardAcquisitionItem {
 
     public DashboardAcquisitionViewModelItem(dynamic gaRow, int totalVisits) {
       Visits = gaRow.Visits;

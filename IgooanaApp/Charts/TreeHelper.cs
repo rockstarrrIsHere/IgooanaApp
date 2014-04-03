@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Helper class to unify certain aspects of navigating VisualTree in WPF and Silvelright.
   /// </summary>

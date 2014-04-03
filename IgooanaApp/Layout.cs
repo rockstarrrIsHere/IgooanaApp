@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public class Layout : ContentControl {
     private bool menuOpen = false;
     public Layout() {

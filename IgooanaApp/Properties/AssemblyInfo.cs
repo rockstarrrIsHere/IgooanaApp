@@ -6,13 +6,13 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("IgooanaApp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("IgooanaApp.WP8")]
+[assembly: AssemblyDescription("The Windows Phone App for Google Analytics")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("IgooanaApp")]
+[assembly: AssemblyCompany("Igooana")]
+[assembly: AssemblyProduct("Igooana")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Igooana")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

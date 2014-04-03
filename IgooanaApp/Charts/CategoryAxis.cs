@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Represents category axis in serial chart (usually x-axis)
   /// </summary>

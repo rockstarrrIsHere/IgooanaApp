@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using Igooana;
+using IgooanaApp.Core;
+using IgooanaApp.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using Igooana;
-using IgooanaApp.ViewModels;
 
-namespace IgooanaApp.Controls {
+namespace IgooanaApp.WP8.Controls {
   public partial class DashboardVisitsByCountry : UserControl {
-
     const int visitsCountLetterWidth = 16;
     const int startCountOverallTextLevel = 2;
 
@@ -30,7 +23,7 @@ namespace IgooanaApp.Controls {
     }
 
     private void ToggleIfNoData() {
-     
+
     }
 
     async void DashboardVisitsByCountry_Loaded(object sender, RoutedEventArgs e) {
@@ -39,12 +32,12 @@ namespace IgooanaApp.Controls {
         .WithMetrics(Metric.Visitor.Visitors)
         //.Take(SHOW_ROWS_COUNT)
         .OrderByDescending(Metric.Visitor.Visitors);
-      
+
       var result = await Api.Current.Execute(query);
-      var viewModel = new DashboardVisitsByCountryViewModel(result.Values, result.Totals, new { LetterWidth = visitsCountLetterWidth, Level = startCountOverallTextLevel });
-     
-      LayoutRoot.DataContext = viewModel;
-      
+      var viewModel = new DashboardVisitsByCountryViewModel(result.Values, result.Totals);
+
+      DataContext = viewModel;
+
       ToggleLoading(viewModel.HasData);
     }
   }

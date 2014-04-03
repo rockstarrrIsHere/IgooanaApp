@@ -1,10 +1,11 @@
 ﻿using Igooana;
-using IgooanaApp.Resources;
+using IgooanaApp.Core.Resources;
+using IgooanaApp.WP8.Resources;
 using Microsoft.Phone.Controls;
 using System;
 using System.Windows;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public partial class Auth : PhoneApplicationPage {
     private Api api;
     public Auth() {
@@ -30,7 +31,7 @@ namespace IgooanaApp {
         }
       } catch (AccessDeniedException) {
         PhoneStorage.ClearCredentials();
-        MessageBox.Show(Localization.OAuthUserConsentDenyMessage);
+        MessageBox.Show(L.OAuthUserConsentDenyMessage);
         Browser.Navigate(api.AuthenticateUri);
       } catch (Exception ex) {
         MessageBox.Show(ex.Message);

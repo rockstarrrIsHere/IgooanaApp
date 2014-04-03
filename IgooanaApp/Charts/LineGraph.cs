@@ -8,7 +8,7 @@ using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows.Data;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Facilitates rendering of line graphs.
   /// </summary>

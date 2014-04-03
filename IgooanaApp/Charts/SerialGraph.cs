@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Base class for graphs in serial chart.
   /// </summary>

@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Facilitates rendering of pie chart slices.
   /// </summary>

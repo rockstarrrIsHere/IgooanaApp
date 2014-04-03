@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Interface which should be implemented by classes used as legend items.
   /// </summary>

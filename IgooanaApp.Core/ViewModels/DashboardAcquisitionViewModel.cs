@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Igooana;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-namespace IgooanaApp.ViewModels {
+using System.Threading.Tasks;
+namespace IgooanaApp.Core.ViewModels {
   public class DashboardAcquisitionViewModel : ObservableCollection<IDashboardAcquisitionItem> {
     const float MinimumSlicePercent = .005f;
-    public DashboardAcquisitionViewModel(IEnumerable<dynamic> gaRows) {
+    public async Task InitAsync() {
+      var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
+        .WithMetrics(Metric.Session.Visits).WithDimensions(Dimension.TrafficSources.Source);
+      var result = await Api.Current.Execute(query);
+      var gaRows = result.Values;
       var totalVisits = gaRows.Sum(x => x.Visits);
       foreach (var row in gaRows.OrderByDescending(x => x.Visits).TakeWhile(x => Convert.ToSingle(x.Visits) / totalVisits > MinimumSlicePercent)) {
         Add(new DashboardAcquisitionViewModelItem(row, totalVisits));
@@ -26,6 +31,12 @@ namespace IgooanaApp.ViewModels {
     public string CenterTextDescription {
       get {
         return Count > 1 ? "Sources" : "Source";
+      }
+    }
+
+    public bool ControlVisibility {
+      get {
+        return true;
       }
     }
   }

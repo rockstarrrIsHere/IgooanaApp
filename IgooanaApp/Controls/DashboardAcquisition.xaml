@@ -1,22 +1,41 @@
-﻿<UserControl x:Class="IgooanaApp.Controls.DashboardAcquisition"
+﻿<UserControl x:Class="IgooanaApp.WP8.Controls.DashboardAcquisition"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:charts="clr-namespace:IgooanaApp.Charts"
+    xmlns:igooanaCharts="clr-namespace:IgooanaApp.WP8.Charts"
+    xmlns:igooanaControls="clr-namespace:IgooanaApp.WP8.Controls"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
-  <Grid x:Name="LayoutRoot" Background="White">
-    <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
-    <charts:PieChart x:Name="AcquisitionChart" 
-                     Visibility="Collapsed"
-                     ValueMemberPath="Value"
-                     TitleMemberPath="Title"
-                     Text="{Binding CenterText}"
-                     Description="{Binding CenterTextDescription}"/>
-  </Grid>
+  <igooanaControls:ControlLayout Title="Acquisition">
+    <Grid Background="White">
+      <ProgressBar x:Name="ProgressBar" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>
+      <Grid Background="{StaticResource CommonBackgroundBrush}" Visibility="{Binding ControlVisibility}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10*"/>
+          </Grid.ColumnDefinitions>
+          <TextBlock FontSize="{StaticResource LargerFontSize}" Text="{Binding LocalizedResources.Visits, Source={StaticResource LocalizedStrings}}"/>
+          <Image Grid.Column="1" Source="/Assets/Icons/Acquisition.png"/>
+          <TextBlock Grid.Column="2" FontSize="{StaticResource LargestFontSize}" Text="{Binding VisitsTotal, StringFormat='N0'}" />
+        </Grid>
+        <igooanaCharts:PieChart Grid.Row="1" x:Name="AcquisitionChart" 
+                       Visibility="Collapsed"
+                       ValueMemberPath="Value"
+                       TitleMemberPath="Title"
+                       Text="{Binding CenterText}"
+                       Description="{Binding CenterTextDescription}"/>
+      </Grid>
+    </Grid>
+
+  </igooanaControls:ControlLayout>
+
 </UserControl>

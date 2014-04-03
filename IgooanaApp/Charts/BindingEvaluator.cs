@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Data;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Utility class to facilitate temporary binding evaluation
   /// </summary>

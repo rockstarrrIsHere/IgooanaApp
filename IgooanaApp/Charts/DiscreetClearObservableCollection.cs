@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// A version of <see cref="ObservableCollection{T}"/> which on call to Clear() removes items one-by-one.
   /// </summary>

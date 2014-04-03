@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Displays pie charts.
   /// </summary>
@@ -55,7 +55,7 @@ namespace IgooanaApp.Charts {
       get { return (Visibility)GetValue(LegendVisibilityProperty); }
       set { SetValue(LegendVisibilityProperty, value); }
     }
-    
+
 
     /// <summary>
     /// Identifies <see cref="Text"/> dependency property.
@@ -173,8 +173,7 @@ namespace IgooanaApp.Charts {
       if (this.DataSource != null) {
         SetData();
         ReallocateSlices();
-      }
-      else {
+      } else {
         titles.Clear();
         values.Clear();
         total = 0;
@@ -209,8 +208,7 @@ namespace IgooanaApp.Charts {
     private void ReallocateSlices() {
       if (values.Count > slices.Count) {
         AddSlices();
-      }
-      else if (values.Count < slices.Count) {
+      } else if (values.Count < slices.Count) {
         RemoveSlices();
       }
       SetSliceData();
@@ -274,8 +272,7 @@ namespace IgooanaApp.Charts {
     protected override void OnManipulationStarted(ManipulationStartedEventArgs e) {
       if (!isSliceEvent) {
         HideBaloon();
-      }
-      else {
+      } else {
         isSliceEvent = false;
       }
     }
@@ -283,8 +280,7 @@ namespace IgooanaApp.Charts {
     private void SwitchLegend() {
       if (legend.Visibility == Visibility.Visible) {
         legend.Visibility = Visibility.Collapsed;
-      }
-      else {
+      } else {
         legend.Visibility = Visibility.Visible;
       }
     }
@@ -384,8 +380,7 @@ namespace IgooanaApp.Charts {
       double balloonLeft = position.X - balloon.DesiredSize.Width / 2;
       if (balloonLeft < 0) {
         balloonLeft = position.X;
-      }
-      else if (balloonLeft + balloon.DesiredSize.Width > canvasBorder.ActualWidth) {
+      } else if (balloonLeft + balloon.DesiredSize.Width > canvasBorder.ActualWidth) {
         balloonLeft = position.X - balloon.DesiredSize.Width;
       }
       double balloonTop = position.Y - balloon.DesiredSize.Height - 5;

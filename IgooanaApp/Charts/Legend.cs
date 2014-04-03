@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace IgooanaApp.Charts {
+namespace IgooanaApp.WP8.Charts {
   /// <summary>
   /// Represents chart legend.
   /// </summary>

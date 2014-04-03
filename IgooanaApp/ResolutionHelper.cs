@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IgooanaApp {
+namespace IgooanaApp.WP8 {
   public enum Resolutions { WVGA, WXGA, HD };
 
   public static class ResolutionHelper {
