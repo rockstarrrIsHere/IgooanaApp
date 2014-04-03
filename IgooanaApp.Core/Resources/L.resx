@@ -120,6 +120,9 @@
   <data name="Audience" xml:space="preserve">
     <value>Audience</value>
   </data>
+  <data name="NoConnection" xml:space="preserve">
+    <value>Looks like you don't have Internet connection</value>
+  </data>
   <data name="NoData" xml:space="preserve">
     <value>No data available</value>
   </data>

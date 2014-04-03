@@ -127,6 +127,9 @@
     <Compile Include="Controls\DashboardVisitsByCountry.xaml.cs">
       <DependentUpon>DashboardVisitsByCountry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NoConnection.xaml.cs">
+      <DependentUpon>NoConnection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DashboardVisitsByCountry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NoConnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
