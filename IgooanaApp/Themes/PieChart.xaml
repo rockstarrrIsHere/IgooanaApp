@@ -17,20 +17,17 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
               </Grid.RowDefinitions>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-              </Grid.ColumnDefinitions>
 
               <Border x:Name="PART_CanvasBorder" Background="Transparent">
                 <Canvas x:Name="PART_SliceCanvas"/>
               </Border>
-              <Canvas>
+              <Canvas Grid.Row="0">
                 <charts:Balloon x:Name="PART_Balloon" 
                                              BorderBrush="{TemplateBinding Foreground}" 
                                              BorderThickness="2"
                                              Visibility="Collapsed"/>
               </Canvas>
-              <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+              <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="{TemplateBinding Text}" FontSize="72" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
                 <TextBlock Text="{TemplateBinding Description}" FontSize="36" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
               </StackPanel>

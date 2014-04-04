@@ -32,7 +32,7 @@ namespace IgooanaApp.WP8.Controls {
       var viewModel = new DashboardVisitsByCountryViewModel(result.Values, result.Totals);
 
       DataContext = viewModel;
-      CountriesRestText.Padding = new Thickness(viewModel.PaddingCountriesOverall,0,0,0);
+      CountriesRestText.Padding = new Thickness(viewModel.PaddingCountriesOverall, 0, 0, 0);
 
       ToggleLoading(viewModel.HasData);
     }

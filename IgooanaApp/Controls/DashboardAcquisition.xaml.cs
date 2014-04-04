@@ -1,17 +1,17 @@
-﻿using Igooana;
-using IgooanaApp.Core.ViewModels;
-using System.Windows;
-using System.Windows.Controls;
+﻿using IgooanaApp.Core.ViewModels;
+using System;
 
 namespace IgooanaApp.WP8.Controls {
-  public partial class DashboardAcquisition : UserControl {
+  public partial class DashboardAcquisition {
     public DashboardAcquisition() {
       InitializeComponent();
-      DataContext = new DashboardAcquisitionViewModel(); 
+      Loaded += OnLoaded;
     }
 
-    async void OnLoaded(object sender, RoutedEventArgs e) {
-      await ((DashboardAcquisitionViewModel)DataContext).InitAsync();
+    private async void OnLoaded(object sender, EventArgs e) {
+      var viewModel = new DashboardAcquisitionViewModel();
+      await viewModel.InitAsync();
+      DataContext = viewModel;
     }
   }
 }

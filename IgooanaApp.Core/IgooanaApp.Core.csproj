@@ -36,6 +36,7 @@
     <Compile Include="AppState.cs" />
     <Compile Include="BindableBase.cs" />
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\L.Designer.cs">
       <AutoGen>True</AutoGen>

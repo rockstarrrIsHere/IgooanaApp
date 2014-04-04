@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IgooanaApp.WP8", "IgooanaAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IgooanaApp.Core", "IgooanaApp.Core\IgooanaApp.Core.csproj", "{92835E7F-D9A2-4F1B-B084-1B60D033B551}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IgooanaApp.Core.Tests", "IgooanaApp.Core.Tests\IgooanaApp.Core.Tests.csproj", "{0073F32F-AD35-4E27-B006-56DA79DEC091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,14 @@ Global
 		{92835E7F-D9A2-4F1B-B084-1B60D033B551}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92835E7F-D9A2-4F1B-B084-1B60D033B551}.Release|ARM.ActiveCfg = Release|Any CPU
 		{92835E7F-D9A2-4F1B-B084-1B60D033B551}.Release|x86.ActiveCfg = Release|Any CPU
+		{0073F32F-AD35-4E27-B006-56DA79DEC091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0073F32F-AD35-4E27-B006-56DA79DEC091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0073F32F-AD35-4E27-B006-56DA79DEC091}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{0073F32F-AD35-4E27-B006-56DA79DEC091}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0073F32F-AD35-4E27-B006-56DA79DEC091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0073F32F-AD35-4E27-B006-56DA79DEC091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0073F32F-AD35-4E27-B006-56DA79DEC091}.Release|ARM.ActiveCfg = Release|Any CPU
+		{0073F32F-AD35-4E27-B006-56DA79DEC091}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
