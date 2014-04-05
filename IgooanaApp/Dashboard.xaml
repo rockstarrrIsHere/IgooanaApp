@@ -17,8 +17,10 @@
    shell:SystemTray.BackgroundColor="{StaticResource AccentBackgroundColor}"
    shell:SystemTray.ForegroundColor="{StaticResource AccentForegroundColor}">
 
-  <!--<localControls:NoConnection/>-->
   <local:Layout Title="DASHBOARD">
+    <local:Layout.Resources>
+      <Thickness x:Key="ControlMargin">0 10 0 0</Thickness>
+    </local:Layout.Resources>
     <ScrollViewer Background="White">
       <Grid>
         <Grid.RowDefinitions>
@@ -33,9 +35,9 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <localControls:DashboardVisitsByCountry Grid.Column="1"/>
-        <localControls:DashboardAcquisition Grid.Row="1" Grid.Column="1" Margin="0 20 0 0"/>
-        <!-- <localControls:DashboardPageViews Grid.Row="2" Grid.Column="1" />
-    <localControls:DashboardGoals Grid.Row="3" Grid.Column="1"/>-->
+        <localControls:DashboardAcquisition Grid.Row="1" Grid.Column="1" Margin="{StaticResource ControlMargin}"/>
+        <localControls:DashboardPageViews Grid.Row="2" Grid.Column="1" Margin="{StaticResource ControlMargin}"/>
+        <!--<localControls:DashboardGoals Grid.Row="3" Grid.Column="1"/>-->
       </Grid>
     </ScrollViewer>
   </local:Layout>

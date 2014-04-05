@@ -1,4 +1,5 @@
-﻿using Igooana;
+﻿using IgooanaApp.Controls;
+using IgooanaApp.Core.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -10,18 +11,18 @@ namespace IgooanaApp.WP8.Controls {
       Loaded += DashboardPageViews_Loaded;
     }
 
-    void DashboardPageViews_Loaded(object sender, RoutedEventArgs e) {
-      //var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
-      //  .WithDimensions(Dimension.Time.DayOfWeek + Dimension.Time.Hour).WithMetrics(Metric.PageTracking.Pageviews);
-      //var result = await Api.Current.Execute(query);
-      //var color = (Color)Application.Current.Resources[App.AccentBackgroundColor];
-      //var viewModel = new DashboardPageviewsViewModel(result.Values, color);
-      //foreach (var cell in viewModel.Cells) {
-      //  FrameworkElement fe = cell.Content;
-      //  Grid.SetRow(fe, cell.GridRow);
-      //  Grid.SetColumn(fe, cell.GridColumn);
-      //  LayoutRoot.Children.Add(fe);
-      //}
+    async void DashboardPageViews_Loaded(object sender, RoutedEventArgs e) {
+      var viewModel = new DashboardPageViewsViewModel { Busy = true };
+      DataContext = viewModel;
+      var data = await viewModel.InitAsync();
+      var color = (Color)Application.Current.Resources[App.AccentBackgroundColor];
+      var cells = new PageViewsGridCells(data, color);
+      foreach (var cell in cells.Cells) {
+        FrameworkElement fe = cell.Content;
+        Grid.SetRow(fe, cell.GridRow);
+        Grid.SetColumn(fe, cell.GridColumn);
+        Cells.Children.Add(fe);
+      }
     }
   }
 }

@@ -120,6 +120,9 @@
   <data name="Audience" xml:space="preserve">
     <value>Audience</value>
   </data>
+  <data name="Behavior" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
   <data name="NoConnection" xml:space="preserve">
     <value>Looks like you don't have Internet connection</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="OAuthUserConsentDenyMessage" xml:space="preserve">
     <value>You must allow accessing your information in order to use the application</value>
+  </data>
+  <data name="PageViews" xml:space="preserve">
+    <value>Page Views</value>
   </data>
   <data name="TheRestCombined" xml:space="preserve">
     <value>the rest combined</value>

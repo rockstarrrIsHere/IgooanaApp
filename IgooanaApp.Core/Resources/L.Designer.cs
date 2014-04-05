@@ -71,6 +71,15 @@ namespace IgooanaApp.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Behavior.
+        /// </summary>
+        public static string Behavior {
+            get {
+                return ResourceManager.GetString("Behavior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Looks like you don&apos;t have Internet connection.
         /// </summary>
         public static string NoConnection {
@@ -94,6 +103,15 @@ namespace IgooanaApp.Core.Resources {
         public static string OAuthUserConsentDenyMessage {
             get {
                 return ResourceManager.GetString("OAuthUserConsentDenyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Views.
+        /// </summary>
+        public static string PageViews {
+            get {
+                return ResourceManager.GetString("PageViews", resourceCulture);
             }
         }
         

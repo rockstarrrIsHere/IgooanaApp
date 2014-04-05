@@ -140,6 +140,7 @@
     <Compile Include="MultiResImage.cs" />
     <Compile Include="MultiResSplashScreenImage.cs" />
     <Compile Include="NetworkConnectivity.cs" />
+    <Compile Include="Controls\PageViewsGridCells.cs" />
     <Compile Include="PhoneStorage.cs" />
     <Compile Include="Layout.cs" />
     <Compile Include="Profiles.xaml.cs">
@@ -253,6 +254,7 @@
   <ItemGroup>
     <Content Include="Assets\Icons\acquisition.png" />
     <Content Include="Assets\Icons\audience.png" />
+    <Content Include="Assets\Icons\behavior.png" />
     <Content Include="Assets\Icons\contextmenu.png" />
     <Content Include="Assets\Icons\menu.png" />
     <Content Include="Assets\login-topbar-768.png" />

@@ -3,50 +3,78 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:igooanaControls="clr-namespace:IgooanaApp.WP8.Controls"
+    xmlns:igooanaViewModels="clr-namespace:IgooanaApp.Core.ViewModels;assembly=IgooanaApp.Core"
     mc:Ignorable="d"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-    BorderBrush="Gray" BorderThickness="2"
+    Foreground="{StaticResource CommonForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-
-  <Grid x:Name="LayoutRoot" Background="White" ShowGridLines="false">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="5*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-      <RowDefinition Height="4*"/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="20*"/>
-      <ColumnDefinition Width="14*"/>
-      <ColumnDefinition Width="14*"/>
-      <ColumnDefinition Width="14*"/>
-      <ColumnDefinition Width="14*"/>
-      <ColumnDefinition Width="14*"/>
-      <ColumnDefinition Width="14*"/>
-      <ColumnDefinition Width="14*"/>
-    </Grid.ColumnDefinitions>
-  </Grid>
+  <UserControl.Resources>
+    <igooanaViewModels:DashboardPageViewsViewModel x:Key="ViewModel"/>
+  </UserControl.Resources>
+  <igooanaControls:ControlLayout Title="{Binding ControlTitle}">
+    <Grid>
+      <ProgressBar IsIndeterminate="True"
+                 Foreground="{StaticResource AccentBackgroundBrush}"
+                 Visibility="{Binding Busy, Converter={StaticResource BoolToVisibility}}"/>
+      <Grid Visibility="{Binding Busy, FallbackValue=Collapsed, Converter={StaticResource InvertedBoolToVisibility}}"
+            d:DataContext="{StaticResource ViewModel}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="23*"/>
+          </Grid.ColumnDefinitions>
+          <TextBlock FontSize="{StaticResource LargerFontSize}"  Text="{Binding HeaderTitle}"
+                     VerticalAlignment="Center"/>
+          <Image Grid.Column="1" Source="/Assets/Icons/behavior.png" Margin="0 -3 0 -7"/>
+          <TextBlock Grid.Column="2" FontSize="{StaticResource LargestFontSize}" 
+                     Text="{Binding PageViews, StringFormat='N0'}"
+                     VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="Cells"  Grid.Row="1">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="14*"/>
+          </Grid.ColumnDefinitions>
+        </Grid>
+      </Grid>
+    </Grid>
+  </igooanaControls:ControlLayout>
 </UserControl>
