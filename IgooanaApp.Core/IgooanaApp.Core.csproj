@@ -43,11 +43,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>L.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BusyBindableBase.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModel.cs" />
     <Compile Include="ViewModels\DashboardAcquisitionViewModelItem.cs" />
     <Compile Include="ViewModels\DashboardPageViewsViewModel.cs" />
     <Compile Include="ViewModels\DashboardVisitsByCountryViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Igooana">

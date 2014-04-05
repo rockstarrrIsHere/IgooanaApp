@@ -5,30 +5,38 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:igooanaCharts="clr-namespace:IgooanaApp.WP8.Charts"
     xmlns:igooanaControls="clr-namespace:IgooanaApp.WP8.Controls"
+    xmlns:igooanaViewModels="clr-namespace:IgooanaApp.Core.ViewModels;assembly=IgooanaApp.Core"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     Foreground="{StaticResource CommonForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
+  <UserControl.Resources>
+    <igooanaViewModels:DashboardAcquisitionViewModel x:Key="ViewModel"/>
+  </UserControl.Resources>
 
   <igooanaControls:ControlLayout Title="Acquisition">
-    <Grid Background="White">
-      <ProgressBar IsIndeterminate="True" MinHeight="10"
-                   Foreground="{StaticResource AccentBackgroundBrush}"
-                   Visibility="{Binding Busy, Converter={StaticResource BoolToVisibility}}"/>
-      <Grid Visibility="{Binding Busy, Converter={StaticResource InvertedBoolToVisibility}}">
+    <Grid>
+      <ProgressBar IsIndeterminate="True"
+                 Foreground="{StaticResource AccentBackgroundBrush}"
+                 Visibility="{Binding Busy, Converter={StaticResource BoolToVisibility}}"/>
+      <Grid Visibility="{Binding Busy, Converter={StaticResource InvertedBoolToVisibility}}" 
+            d:DataContext="{StaticResource ViewModel}">
         <Grid.RowDefinitions>
           <RowDefinition Height="*"/>
           <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
         <Grid>
           <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="23*"/>
           </Grid.ColumnDefinitions>
-          <TextBlock FontSize="{StaticResource LargerFontSize}"  Text="{Binding HeaderTitle}"/>
-          <Image Grid.Column="1" Source="/Assets/Icons/Acquisition.png"/>
-          <TextBlock Grid.Column="2" FontSize="{StaticResource LargestFontSize}" Text="{Binding VisitsTotal, StringFormat='N0'}" />
+          <TextBlock FontSize="{StaticResource LargerFontSize}"  Text="{Binding HeaderTitle}"
+                     VerticalAlignment="Center"/>
+          <Image Grid.Column="1" Source="/Assets/Icons/Acquisition.png"  VerticalAlignment="Bottom" Margin="-5 0 0 -8"/>
+          <TextBlock Grid.Column="2" FontSize="{StaticResource LargestFontSize}" 
+                     Text="{Binding VisitsTotal, StringFormat='N0'}"
+                     VerticalAlignment="Center"/>
         </Grid>
         <igooanaCharts:PieChart Grid.Row="1" DataSource="{Binding Data}"
                        ValueMemberPath="Value"
@@ -37,7 +45,6 @@
                        Description="{Binding CenterTextDescription}"/>
       </Grid>
     </Grid>
-
   </igooanaControls:ControlLayout>
 
 </UserControl>

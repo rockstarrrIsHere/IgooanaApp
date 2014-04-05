@@ -5,13 +5,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 namespace IgooanaApp.Core.ViewModels {
-  public class DashboardAcquisitionViewModel : BusyBindableBase {
+  public class DashboardAcquisitionViewModel : ViewModelBase {
     const float MinimumSlicePercent = .005f;
     private int visitsTotal;
-    private readonly ObservableCollection<IDashboardAcquisitionItem> data;
+    private ObservableCollection<IDashboardAcquisitionItem> data;
 
     public DashboardAcquisitionViewModel() {
-      data = new ObservableCollection<IDashboardAcquisitionItem>();
+      Busy = true;
     }
 
 
@@ -37,24 +37,30 @@ namespace IgooanaApp.Core.ViewModels {
       }
     }
 
-    public ObservableCollection<IDashboardAcquisitionItem> Data { get { return data; } }
+    public ObservableCollection<IDashboardAcquisitionItem> Data {
+      get { return data; }
+      set {
+        SetProperty(ref data, value);
+      }
+    }
 
     public async Task InitAsync() {
-      await BeBusyWithAsync(async () => {
-        var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
-          .WithMetrics(Metric.Session.Visits).WithDimensions(Dimension.TrafficSources.Source);
-        var result = await Api.Current.Execute(query);
-        var total = result.Totals.Visits;
-        foreach (var row in result.Values.OrderByDescending(x => x.Visits).TakeWhile(x => Convert.ToSingle(x.Visits) / total > MinimumSlicePercent)) {
-          data.Add(new DashboardAcquisitionViewModelItem(row, total));
-        }
-        var theRest = result.Values.OrderByDescending(x => x.Visits).SkipWhile(x => Convert.ToSingle(x.Visits) / total > MinimumSlicePercent);
-        if (theRest.Any()) {
-          int theRestTotalVisits = theRest.Sum(x => x.Visits);
-          data.Add(new DashboardAcquisitionTheRestViewModel(theRestTotalVisits, total));
-        }
-        VisitsTotal = total;
-      });
+      data = new ObservableCollection<IDashboardAcquisitionItem>();
+      var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
+        .WithMetrics(Metric.Session.Visits).WithDimensions(Dimension.TrafficSources.Source);
+      var result = await Api.Current.Execute(query);
+      var total = result.Totals.Visits;
+      foreach (var row in result.Values.OrderByDescending(x => x.Visits).TakeWhile(x => Convert.ToSingle(x.Visits) / total > MinimumSlicePercent)) {
+        data.Add(new DashboardAcquisitionViewModelItem(row, total));
+      }
+      var theRest = result.Values.OrderByDescending(x => x.Visits).SkipWhile(x => Convert.ToSingle(x.Visits) / total > MinimumSlicePercent);
+      if (theRest.Any()) {
+        int theRestTotalVisits = theRest.Sum(x => x.Visits);
+        data.Add(new DashboardAcquisitionTheRestViewModel(theRestTotalVisits, total));
+      }
+      Data = data;
+      VisitsTotal = total;
+      Busy = false;
     }
   }
 }

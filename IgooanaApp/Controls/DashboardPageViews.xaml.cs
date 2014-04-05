@@ -10,7 +10,7 @@ namespace IgooanaApp.WP8.Controls {
       Loaded += DashboardPageViews_Loaded;
     }
 
-    async void DashboardPageViews_Loaded(object sender, RoutedEventArgs e) {
+    void DashboardPageViews_Loaded(object sender, RoutedEventArgs e) {
       //var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
       //  .WithDimensions(Dimension.Time.DayOfWeek + Dimension.Time.Hour).WithMetrics(Metric.PageTracking.Pageviews);
       //var result = await Api.Current.Execute(query);
