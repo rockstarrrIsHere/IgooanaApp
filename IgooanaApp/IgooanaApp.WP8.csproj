@@ -97,6 +97,8 @@
     <Compile Include="Auth.xaml.cs">
       <DependentUpon>Auth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BooleanNegationConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Charts\Balloon.cs" />
     <Compile Include="Charts\BindingEvaluator.cs" />
     <Compile Include="Charts\CategoryAxis.cs" />

@@ -6,9 +6,12 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:System="clr-namespace:System;assembly=mscorlib"
     xmlns:app="clr-namespace:IgooanaApp.WP8"
+    xmlns:converters="clr-namespace:IgooanaApp.WP8.Converters"
   xmlns:core="clr-namespace:IgooanaApp.Core;assembly=IgooanaApp.Core">
 
   <Application.Resources>
+    <converters:BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
+    <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBoolToVisibility"/>
     <app:MultiResSplashScreenImage x:Key="SplashScreen"/>
     <core:LocalizedStrings x:Key="LocalizedStrings"/>
     <Color x:Key="AccentBackgroundColor">#f78c40</Color>
@@ -17,7 +20,7 @@
     <Color x:Key="HardAccentBackgroundColor">#f76700</Color>
     <SolidColorBrush x:Key="AccentBackgroundBrush" Color="{StaticResource AccentBackgroundColor}"/>
     <SolidColorBrush x:Key="AccentFontBrush" Color="{StaticResource AccentFontColor}"/>
-    <SolidColorBrush x:Key="AccentForegrundBrush" Color="{StaticResource AccentForegroundColor}"/>
+    <SolidColorBrush x:Key="AccentForegroundBrush" Color="{StaticResource AccentForegroundColor}"/>
     <SolidColorBrush x:Key="CommonForegroundBrush" Color="Black" />
     <SolidColorBrush x:Key="CommonBackgroundBrush" Color="White" />
     <SolidColorBrush x:Key="HardAccentBackgroundBrush" Color="{StaticResource HardAccentBackgroundColor}" />

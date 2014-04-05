@@ -15,7 +15,7 @@
   <Grid x:Name="LayoutRoot" Background="{StaticResource HardAccentBackgroundBrush}">
     <Grid x:Name="BackgroundGrid">
       <Image Source="{Binding Uri, Source={StaticResource SplashScreen}}"/>
-      <ProgressBar IsIndeterminate="True" Foreground="{StaticResource AccentForegrundBrush}"/>
+      <ProgressBar IsIndeterminate="True" Foreground="{StaticResource AccentForegroundBrush}"/>
     </Grid>
 
     <Grid x:Name="BrowserGrid" Visibility="Collapsed">

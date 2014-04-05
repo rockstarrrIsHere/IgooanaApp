@@ -12,8 +12,10 @@
 
   <igooanaControls:ControlLayout Title="Acquisition">
     <Grid Background="White">
-      <!--<ProgressBar x:Name="ProgressBar" IsIndeterminate="True" Foreground="{StaticResource AccentBackgroundBrush}"/>-->
-      <Grid Background="{StaticResource CommonBackgroundBrush}" Visibility="Visible">
+      <ProgressBar IsIndeterminate="True" MinHeight="10"
+                   Foreground="{StaticResource AccentBackgroundBrush}"
+                   Visibility="{Binding Busy, Converter={StaticResource BoolToVisibility}}"/>
+      <Grid Visibility="{Binding Busy, Converter={StaticResource InvertedBoolToVisibility}}">
         <Grid.RowDefinitions>
           <RowDefinition Height="*"/>
           <RowDefinition Height="8*"/>
@@ -28,9 +30,7 @@
           <Image Grid.Column="1" Source="/Assets/Icons/Acquisition.png"/>
           <TextBlock Grid.Column="2" FontSize="{StaticResource LargestFontSize}" Text="{Binding VisitsTotal, StringFormat='N0'}" />
         </Grid>
-        <igooanaCharts:PieChart Grid.Row="1" x:Name="Chart"
-                       Visibility="Visible"
-                       DataSource="{Binding Data}"
+        <igooanaCharts:PieChart Grid.Row="1" DataSource="{Binding Data}"
                        ValueMemberPath="Value"
                        TitleMemberPath="Title"
                        Text="{Binding CenterText}"
