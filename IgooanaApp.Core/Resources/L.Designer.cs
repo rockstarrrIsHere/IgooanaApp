@@ -80,6 +80,15 @@ namespace IgooanaApp.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Goal Completion.
+        /// </summary>
+        public static string GoalCompletion {
+            get {
+                return ResourceManager.GetString("GoalCompletion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Looks like you don&apos;t have Internet connection.
         /// </summary>
         public static string NoConnection {

@@ -3,19 +3,47 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:igooanaControls="clr-namespace:IgooanaApp.WP8.Controls"
+    xmlns:igooanaViewModels="clr-namespace:IgooanaApp.Core.ViewModels;assembly=IgooanaApp.Core"
     xmlns:charts="clr-namespace:IgooanaApp.WP8.Charts"
     mc:Ignorable="d"
     d:DesignHeight="480" d:DesignWidth="480">
+  <UserControl.Resources>
+    <igooanaViewModels:DashboardGoalsViewModel x:Key="ViewModel"/>
+  </UserControl.Resources>
+  <igooanaControls:ControlLayout Title="{Binding ControlTitle}">
+    <Grid>
+      <ProgressBar IsIndeterminate="True"
+                 Foreground="{StaticResource AccentBackgroundBrush}"
+                 Visibility="{Binding Busy, Converter={StaticResource BoolToVisibility}}"/>
+      <Grid Visibility="{Binding Busy, FallbackValue=Collapsed, Converter={StaticResource InvertedBoolToVisibility}}"
+            d:DataContext="{StaticResource ViewModel}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="23*"/>
+          </Grid.ColumnDefinitions>
+          <Image Source="/Assets/Icons/goals.png" Margin="0 -5 5 -8"/>
+          <TextBlock Grid.Column="1" FontSize="{StaticResource LargestFontSize}" 
+                      Foreground="{StaticResource CommonForegroundBrush}"
+                     Text="{Binding Goals, StringFormat='N0'}"
+                     VerticalAlignment="Center"/>
+        </Grid>
 
-  <Grid Background="White">
-    <charts:SerialChart x:Name="GoalsChart" Height="200" CategoryValueMemberPath="Date"
+        <Grid Grid.Row="1">
+          <charts:SerialChart x:Name="GoalsChart" Height="200" CategoryValueMemberPath="Date"
                          AxisForeground="LightGray"
                          PlotAreaBackground="White" MinimumCategoryGridStep="200" GridStroke="Gray">
-      <charts:SerialChart.Graphs>
-        <charts:ColumnGraph ValueMemberPath="GoalConversions" Title="Goals" Brush="{StaticResource AccentBackgroundBrush}" ColumnWidthAllocation="0.9" />
-      </charts:SerialChart.Graphs>
-    </charts:SerialChart>
-
-  </Grid>
-
+            <charts:SerialChart.Graphs>
+              <charts:ColumnGraph ValueMemberPath="GoalConversions" Title="Goals" Brush="{StaticResource AccentBackgroundBrush}" ColumnWidthAllocation="0.9" />
+            </charts:SerialChart.Graphs>
+          </charts:SerialChart>
+        </Grid>
+      </Grid>
+    </Grid>
+  </igooanaControls:ControlLayout>
 </UserControl>

@@ -1,8 +1,5 @@
-﻿using Igooana;
-using IgooanaApp.Core;
+﻿using IgooanaApp.Core.ViewModels;
 using System;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,11 +12,10 @@ namespace IgooanaApp.WP8.Controls {
     }
 
     async void OnLoaded(object sender, RoutedEventArgs e) {
-      var query = Query.For(AppState.Current.Profile.Id, AppState.Current.StartDate, AppState.Current.EndDate)
-        .WithMetrics(Metric.GoalConversions.GoalCompletionsAll)
-        .WithDimensions(Dimension.Time.Date);
-      var results = await Api.Current.Execute(query);
-      GoalsChart.DataSource = results.Values.Select(x => new { Date = x.Date, GoalConversions = x.GoalCompletionsAll });
+      var viewModel = new DashboardGoalsViewModel { Busy = true };
+      DataContext = viewModel;
+      await viewModel.InitAsync();
+      //GoalsChart.DataSource = results.Values.Select(x => new { Date = x.Date, GoalConversions = x.GoalCompletionsAll });
     }
   }
 }

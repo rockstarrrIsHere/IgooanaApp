@@ -123,6 +123,9 @@
   <data name="Behavior" xml:space="preserve">
     <value>Behavior</value>
   </data>
+  <data name="GoalCompletion" xml:space="preserve">
+    <value>Goal Completion</value>
+  </data>
   <data name="NoConnection" xml:space="preserve">
     <value>Looks like you don't have Internet connection</value>
   </data>
