@@ -18,8 +18,10 @@
       <Setter.Value>
         <DataTemplate>
           <StackPanel Orientation="Horizontal">
-            <Rectangle Fill="{Binding Brush}" Height="10" Width="10" Margin="5" />
-            <TextBlock Text="{Binding Title}" VerticalAlignment="Center" Foreground="Gray" />
+            <Ellipse Fill="{Binding Brush}" Height="15" Width="15" Margin="10" />
+            <TextBlock Text="{Binding Title}" FontWeight="Light" 
+                       Foreground="{StaticResource CommonForegroundBrush}"
+                       VerticalAlignment="Center"/>
           </StackPanel>
         </DataTemplate>
       </Setter.Value>

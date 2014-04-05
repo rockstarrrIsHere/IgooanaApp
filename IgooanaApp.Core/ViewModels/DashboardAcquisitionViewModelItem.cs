@@ -9,7 +9,7 @@ namespace IgooanaApp.Core.ViewModels {
 
     public DashboardAcquisitionViewModelItem(dynamic gaRow, int totalVisits) {
       Visits = gaRow.Visits;
-      VisitsPercentage = Visits / Convert.ToSingle(totalVisits);
+      VisitsPercentage = Visits / Convert.ToSingle(totalVisits) * 100;
       Source = gaRow.Source;
     }
     public int Visits { get; set; }
@@ -20,7 +20,7 @@ namespace IgooanaApp.Core.ViewModels {
 
     public string Title {
       get {
-        return string.Format("{0:P} {1}", VisitsPercentage, Source);
+        return string.Format("{0:N2}% {1}", VisitsPercentage, Source);
       }
     }
   }
@@ -28,7 +28,7 @@ namespace IgooanaApp.Core.ViewModels {
   public class DashboardAcquisitionTheRestViewModel : IDashboardAcquisitionItem {
     private readonly float theRestPercentage;
     public DashboardAcquisitionTheRestViewModel(int theRestTotalVisits, int totalVisits) {
-      theRestPercentage = Convert.ToSingle(theRestTotalVisits) / totalVisits;
+      theRestPercentage = Convert.ToSingle(theRestTotalVisits) / totalVisits * 100;
       Value = theRestTotalVisits;
     }
 
@@ -38,7 +38,7 @@ namespace IgooanaApp.Core.ViewModels {
     public string Title {
       get {
         //TODO: localize
-        return string.Format("{0:P} {1}", theRestPercentage, "(the rest combined)");
+        return string.Format("{0:N2}% {1}", theRestPercentage, "(the rest combined)");
       }
     }
   }

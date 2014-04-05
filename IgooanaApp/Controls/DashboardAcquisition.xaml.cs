@@ -9,7 +9,7 @@ namespace IgooanaApp.WP8.Controls {
     }
 
     private async void OnLoaded(object sender, EventArgs e) {
-      var viewModel = new DashboardAcquisitionViewModel();
+      var viewModel = new DashboardAcquisitionViewModel { Busy = true };
       DataContext = viewModel;
       await viewModel.InitAsync();
     }

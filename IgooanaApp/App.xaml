@@ -30,14 +30,15 @@
     <System:Double x:Key="LargerFontSize">30</System:Double>
     <System:Double x:Key="LargeFontSize">25</System:Double>
     <System:Double x:Key="LargestFontSize">41</System:Double>
-    
+    <System:Double x:Key="HugeFontSize">70</System:Double>
+
     <Style TargetType="TextBlock" x:Key="ControlTitleText">
       <Setter Property="Foreground" Value="{StaticResource AccentFontBrush}"/>
       <Setter Property="FontSize" Value="{StaticResource LargerFontSize}"/>
       <Setter Property="HorizontalAlignment" Value="Stretch"/>
       <Setter Property="VerticalAlignment" Value="Stretch"/>
     </Style>
-    
+
   </Application.Resources>
 
   <Application.ApplicationLifetimeObjects>

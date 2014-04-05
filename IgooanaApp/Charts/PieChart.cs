@@ -18,6 +18,7 @@ namespace IgooanaApp.WP8.Charts {
   [TemplatePart(Name = "PART_Canvas", Type = typeof(Canvas))]
   [TemplatePart(Name = "PART_Legend", Type = typeof(Legend))]
   public class PieChart : Control {
+    private IList<Brush> presetBrushes = ViewHelper.PaletteColors.Select(x => new SolidColorBrush(x)).ToArray();
     private ObservableCollection<Slice> slices = new ObservableCollection<Slice>();
     private Balloon balloon;
     private Legend legend;
@@ -105,8 +106,8 @@ namespace IgooanaApp.WP8.Charts {
 
     private static void OnDataSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) {
       PieChart chart = d as PieChart;
-      //DetachOldDataSourceCollectionChangedListener(chart, e.OldValue);
-      //AttachDataSourceCollectionChangedListener(chart, e.NewValue);
+      DetachOldDataSourceCollectionChangedListener(chart, e.OldValue);
+      AttachDataSourceCollectionChangedListener(chart, e.NewValue);
       chart.ProcessData();
     }
 
@@ -229,7 +230,7 @@ namespace IgooanaApp.WP8.Charts {
     }
 
     private void SetSliceBrush(int index) {
-      List<Brush> brushes = this.brushes.Count > 0 ? this.brushes : presetBrushes;
+      IList<Brush> brushes = this.brushes.Count > 0 ? this.brushes : presetBrushes;
       int brushCount = brushes.Count;
       slices[index].Brush = brushes[index % brushCount];
     }
@@ -346,24 +347,6 @@ namespace IgooanaApp.WP8.Charts {
       }
     }
 
-    private List<Brush> presetBrushes = new List<Brush>()
-        {
-            new SolidColorBrush(Color.FromArgb(0xFF, 0x3A, 0x0C, 0xD0)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x0F, 0x00)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0xB0, 0xDE, 0x09)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0x33, 0x33, 0x33)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0x99, 0x00, 0x00)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0x0D, 0x52, 0xD1)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0x0D, 0x8E, 0xCF)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0x8A, 0x0C, 0xCF)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x9E, 0x01)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0xCD, 0x0D, 0x74)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0x75, 0x4D, 0xEB)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x66, 0x00)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0x04, 0xD2, 0x15)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0xFF, 0x01)),
-            new SolidColorBrush(Color.FromArgb(0xFF, 0xFC, 0xD2, 0x02))
-        };
 
 
     /// <summary>

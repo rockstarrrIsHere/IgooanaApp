@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using Windows.UI;
+using System.Windows.Media;
 
 namespace IgooanaApp.WP8 {
   /// <summary>

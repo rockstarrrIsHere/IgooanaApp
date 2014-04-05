@@ -19,7 +19,7 @@
       <ProgressBar IsIndeterminate="True"
                  Foreground="{StaticResource AccentBackgroundBrush}"
                  Visibility="{Binding Busy, Converter={StaticResource BoolToVisibility}}"/>
-      <Grid Visibility="{Binding Busy, Converter={StaticResource InvertedBoolToVisibility}}" 
+      <Grid Visibility="{Binding Busy, FallbackValue=Collapsed, Converter={StaticResource InvertedBoolToVisibility}}" 
             d:DataContext="{StaticResource ViewModel}">
         <Grid.RowDefinitions>
           <RowDefinition Height="*"/>
@@ -38,7 +38,8 @@
                      Text="{Binding VisitsTotal, StringFormat='N0'}"
                      VerticalAlignment="Center"/>
         </Grid>
-        <igooanaCharts:PieChart Grid.Row="1" DataSource="{Binding Data}"
+        <igooanaCharts:PieChart Grid.Row="1" 
+                       DataSource="{Binding Data}"
                        ValueMemberPath="Value"
                        TitleMemberPath="Title"
                        Text="{Binding CenterText}"

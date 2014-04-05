@@ -10,11 +10,10 @@
           <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}"
-                            >
+                            Padding="{TemplateBinding Padding}">
             <Grid>
               <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="350"/>
                 <RowDefinition Height="auto"/>
               </Grid.RowDefinitions>
 
@@ -28,10 +27,15 @@
                                              Visibility="Collapsed"/>
               </Canvas>
               <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="{TemplateBinding Text}" FontSize="72" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
-                <TextBlock Text="{TemplateBinding Description}" FontSize="36" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
+                <TextBlock Text="{TemplateBinding Text}" 
+                           FontSize="{StaticResource HugeFontSize}" 
+                           Foreground="{StaticResource CommonForegroundBrush}" HorizontalAlignment="Center"/>
+                <TextBlock Text="{TemplateBinding Description}" FontSize="{StaticResource LargerFontSize}" 
+                           FontWeight="Light" 
+                           Foreground="{StaticResource CommonForegroundBrush}" 
+                           HorizontalAlignment="Center"/>
               </StackPanel>
-              <charts:Legend Grid.Row="1" x:Name="PART_Legend" Margin="10,0,0,0" Visibility="{TemplateBinding LegendVisibility}"/>
+              <charts:Legend Grid.Row="1" x:Name="PART_Legend" Visibility="{TemplateBinding LegendVisibility}"/>
             </Grid>
           </Border>
         </ControlTemplate>
