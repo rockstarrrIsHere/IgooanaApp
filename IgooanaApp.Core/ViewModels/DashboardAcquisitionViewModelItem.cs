@@ -1,9 +1,12 @@
-﻿using System;
+﻿using IgooanaApp.Core.Resources;
+using System;
 
 namespace IgooanaApp.Core.ViewModels {
   public interface IDashboardAcquisitionItem {
     int Value { get; }
     string Title { get; }
+
+    string FontWeight { get; }
   }
   public class DashboardAcquisitionViewModelItem : IDashboardAcquisitionItem {
 
@@ -19,8 +22,13 @@ namespace IgooanaApp.Core.ViewModels {
     public int Value { get { return Visits; } }
 
     public string Title {
+      get { return string.Format("{0:N2}% {1}", VisitsPercentage, Source); }
+    }
+
+
+    public string FontWeight {
       get {
-        return string.Format("{0:N2}% {1}", VisitsPercentage, Source);
+        return "Light";
       }
     }
   }
@@ -37,9 +45,12 @@ namespace IgooanaApp.Core.ViewModels {
 
     public string Title {
       get {
-        //TODO: localize
-        return string.Format("{0:N2}% {1}", theRestPercentage, "(the rest combined)");
+        return string.Format("{0:N2}% ({1})", theRestPercentage, L.TheRestCombined);
       }
+    }
+
+    public string FontWeight {
+      get { return "Normal"; }
     }
   }
 }

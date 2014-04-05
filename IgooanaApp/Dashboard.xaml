@@ -33,10 +33,10 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <localControls:DashboardVisitsByCountry Grid.Column="1"/>
-        <localControls:DashboardAcquisition Grid.Row="1" Grid.Column="1" MinHeight="500"/>
-   <!-- <localControls:DashboardPageViews Grid.Row="2" Grid.Column="1" />
+        <localControls:DashboardAcquisition Grid.Row="1" Grid.Column="1" Margin="0 20 0 0"/>
+        <!-- <localControls:DashboardPageViews Grid.Row="2" Grid.Column="1" />
     <localControls:DashboardGoals Grid.Row="3" Grid.Column="1"/>-->
-     </Grid>
+      </Grid>
     </ScrollViewer>
   </local:Layout>
 </phone:PhoneApplicationPage>

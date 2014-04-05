@@ -19,8 +19,9 @@
         <DataTemplate>
           <StackPanel Orientation="Horizontal">
             <Ellipse Fill="{Binding Brush}" Height="15" Width="15" Margin="10" />
-            <TextBlock Text="{Binding Title}" FontWeight="Light" 
+            <TextBlock Text="{Binding Title}" 
                        Foreground="{StaticResource CommonForegroundBrush}"
+                       FontWeight="Light"
                        VerticalAlignment="Center"/>
           </StackPanel>
         </DataTemplate>

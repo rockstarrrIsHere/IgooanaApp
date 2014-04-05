@@ -12,6 +12,7 @@
   <Application.Resources>
     <converters:BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
     <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBoolToVisibility"/>
+    <converters:StringToFontWeightConverter x:Key="StringToFontWeight"/>
     <app:MultiResSplashScreenImage x:Key="SplashScreen"/>
     <core:LocalizedStrings x:Key="LocalizedStrings"/>
     <Color x:Key="AccentBackgroundColor">#f78c40</Color>

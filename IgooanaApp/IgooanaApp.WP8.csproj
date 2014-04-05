@@ -132,6 +132,7 @@
     <Compile Include="Controls\NoConnection.xaml.cs">
       <DependentUpon>NoConnection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\StringToFontWeightConverter.cs" />
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>

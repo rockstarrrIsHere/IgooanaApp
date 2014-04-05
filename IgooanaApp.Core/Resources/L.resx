@@ -129,6 +129,9 @@
   <data name="OAuthUserConsentDenyMessage" xml:space="preserve">
     <value>You must allow accessing your information in order to use the application</value>
   </data>
+  <data name="TheRestCombined" xml:space="preserve">
+    <value>the rest combined</value>
+  </data>
   <data name="Visits" xml:space="preserve">
     <value>Visits</value>
   </data>
