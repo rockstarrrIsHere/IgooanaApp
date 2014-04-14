@@ -129,7 +129,7 @@
     <Compile Include="Controls\DashboardVisitsByCountry.xaml.cs">
       <DependentUpon>DashboardVisitsByCountry.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NoConnection.xaml.cs">
+    <Compile Include="NoConnection.xaml.cs">
       <DependentUpon>NoConnection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\StringToFontWeightConverter.cs" />
@@ -180,7 +180,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\NoConnection.xaml">
+    <Page Include="NoConnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

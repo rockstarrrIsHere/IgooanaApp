@@ -1,5 +1,6 @@
 ﻿using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
@@ -153,8 +154,9 @@ namespace IgooanaApp.WP8 {
     /// <returns></returns>
     public async Task<bool> VerifyConnectivityToGoogle() {
       if (!await NetworkConnectivity.IsOnline()) {
-        MessageBox.Show("No internet connection. Application will now exit");
-        App.Current.Terminate();
+        //MessageBox.Show("No internet connection. Application will now exit");
+        (App.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("/NoConnection.xaml", UriKind.Relative));
+        //App.Current.Terminate();
         return false;
       }
       return true;

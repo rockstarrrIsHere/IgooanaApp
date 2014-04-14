@@ -53,6 +53,7 @@
       <Setter Property="Padding" Value="0,7,0,0"/>
       <Setter Property="HorizontalAlignment" Value="Stretch"/>
       <Setter Property="VerticalAlignment" Value="Stretch"/>
+      <Setter Property="FontWeight" Value="Light"/>
     </Style>
 
     <!-- OtherCountriesItemMargin should be Bullet width + VisitsListItemMargin + CountVisits margin left -->
